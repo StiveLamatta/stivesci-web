@@ -1,0 +1,127 @@
+<header>
+  <div>
+    <div class="main">
+      <div class="logo">
+        <a class="logo_link" href="#home" title="home"></a>
+      </div>
+      <div class="autor">
+        <h1>Stive Lamatta</h1>
+      </div>
+      <div class="buttons">
+        <div class="lang_select">
+          <button class="lang_button"></button>
+          <p class="lang_text">Language</p>
+        </div>
+        <button class="suscribe">Sucribete for free</button>
+      </div>
+    </div>
+  </div>
+  <nav>
+    <ul>
+      <li class="home"><a>Home</a></li>
+      <li class="art"><a>Articulos</a></li>
+      <li class="proy"><a>Proyects</a></li>
+      <li class="gal"><a>Galery</a></li>
+      <li class="bio"><a>Biography</a></li>
+      <li class="cont"><a>Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid black;
+  }
+
+  .logo {
+    flex: 1 1 0;
+    height: 45px;
+    display: flex;
+  }
+
+  .logo_link {
+    width: 45px;
+    height: 45px;
+    background-image: url("logo.jpg");
+    background-size: cover;
+  }
+
+  .autor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 0;
+    height: 45px;
+  }
+
+  .buttons {
+    flex: 1 1 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+  }
+
+  .lang_select {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+  }
+
+  .lang_button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: url("https:/flagcdn.com/w80/es.png");
+    background-size: cover;
+  }
+
+  .lang_text {
+    font-size: 10px;
+    font-weight: bold;
+  }
+
+  .suscribe {
+    width: 200px;
+    height: 40px;
+    background-color: rgb(37, 99, 235);
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid black;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+  }
+
+  nav ul li {
+    padding: 10px;
+  }
+
+  nav ul li:hover {
+    cursor: pointer;
+    background-color: rgb(220, 220, 220);
+  }
+</style>
