@@ -1,47 +1,47 @@
 ---
-import BaseBlog from "../layout/BaseBlog.astro";
+import BaseBlog from '../layout/BaseBlog.astro';
 
-import RecentArts from "../components/RecentArts.astro";
-import Hero from "../components/Hero.astro";
-import FeacturedApps from "../components/FeacturedApps.astro";
-import Carousel from "../components/Carousel.astro";
+import RecentArts from '../components/RecentArts.astro';
+import Hero from '../components/Hero.astro';
+import FeacturedApps from '../components/FeacturedApps.astro';
+import Carousel from '../components/Carousel.astro';
 ---
 
 <BaseBlog>
-  <div class="home">
-    <div class="recent-arts">
-      <RecentArts />
+    <div class="home">
+        <div class="recent-arts">
+            <RecentArts />
+        </div>
+        <div class="hero">
+            <Hero />
+        </div>
+        <div class="feactured-apps">
+            <FeacturedApps />
+        </div>
+        <div class="carousel">
+            <Carousel />
+        </div>
     </div>
-    <div class="hero">
-      <Hero />
-    </div>
-    <div class="feactured-apps">
-      <FeacturedApps />
-    </div>
-    <div class="carousel">
-      <Carousel />
-    </div>
-  </div>
 </BaseBlog>
 
 <style>
-  .home {
-    display: grid;
-    height: 70vh;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-areas: "recent-arts hero feactured-apps" "carousel carousel carousel";
-  }
+    .home {
+        display: grid;
+        height: 70vh;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas: 'recent-arts hero feactured-apps' 'carousel carousel carousel';
+    }
 
-  .recent-arts {
-    grid-area: recent-arts;
-  }
-  .hero {
-    grid-area: hero;
-  }
-  .feactured-apps {
-    grid-areas: feactured-apps;
-  }
-  .carousel {
-    grid-area: carousel;
-  }
+    .recent-arts {
+        grid-area: recent-arts;
+    }
+    .hero {
+        grid-area: hero;
+    }
+    .feactured-apps {
+        grid-areas: feactured-apps;
+    }
+    .carousel {
+        grid-area: carousel;
+    }
 </style>
