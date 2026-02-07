@@ -7,55 +7,55 @@ import Carousel from '../components/Carousel.astro';
 ---
 
 <BaseBlog title="Stive Lamatta | Inicio">
-  <div class="home">
-    <div class="recent-arts">
-      <RecentArts />
+    <div class="home">
+        <div class="recent-arts">
+            <RecentArts />
+        </div>
+        <div class="hero">
+            <Hero />
+        </div>
+        <div class="feactured-apps">
+            <FeacturedApps />
+        </div>
+        <div class="carousel">
+            <Carousel />
+        </div>
     </div>
-    <div class="hero">
-      <Hero />
-    </div>
-    <div class="feactured-apps">
-      <FeacturedApps />
-    </div>
-    <div class="carousel">
-      <Carousel />
-    </div>
-  </div>
 </BaseBlog>
 
 <style>
-  .home {
-    display: grid;
-    height: 70vh;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-areas:
-      'recent-arts hero feactured-apps'
-      'carousel carousel carousel';
-    gap: var(--spacing-md);
-  }
-
-  .recent-arts {
-    grid-area: recent-arts;
-  }
-  .hero {
-    grid-area: hero;
-  }
-  .feactured-apps {
-    grid-area: feactured-apps;
-  }
-  .carousel {
-    grid-area: carousel;
-  }
-
-  @media (max-width: 768px) {
     .home {
-      grid-template-columns: 1fr;
-      grid-template-areas:
-        'hero'
-        'recent-arts'
-        'feactured-apps'
-        'carousel';
-      height: auto;
+        display: grid;
+        height: 70vh;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+            'recent-arts hero feactured-apps'
+            'carousel carousel carousel';
+        gap: var(--spacing-md);
     }
-  }
+
+    .recent-arts {
+        grid-area: recent-arts;
+    }
+    .hero {
+        grid-area: hero;
+    }
+    .feactured-apps {
+        grid-area: feactured-apps;
+    }
+    .carousel {
+        grid-area: carousel;
+    }
+
+    @media (max-width: 768px) {
+        .home {
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                'hero'
+                'recent-arts'
+                'feactured-apps'
+                'carousel';
+            height: auto;
+        }
+    }
 </style>

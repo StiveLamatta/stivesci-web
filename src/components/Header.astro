@@ -1,127 +1,205 @@
-<header>
-    <div>
-        <div class="main">
-            <div class="logo">
-                <a class="logo_link" href="#home" title="home"></a>
+---
+
+---
+
+<header class="header">
+    <div class="header__top">
+        <div class="header__container">
+            <div class="header__logo">
+                <img src="/logo.jpg" alt="Stive Lamatta" />
             </div>
-            <div class="autor">
+
+            <div class="header__brand">
                 <h1>Stive Lamatta</h1>
+                <p>Data Scientist & Developer</p>
             </div>
-            <div class="buttons">
-                <div class="lang_select">
-                    <button class="lang_button"></button>
-                    <p class="lang_text">Language</p>
-                </div>
-                <button class="suscribe">Sucribe for free</button>
+
+            <div class="header__actions">
+                <button class="btn-subscribe">¡Suscríbete Gratis!</button>
             </div>
         </div>
     </div>
-    <nav>
-        <ul>
-            <li class="home"><a>Home</a></li>
-            <li class="art"><a>Articulos</a></li>
-            <li class="proy"><a>Proyects</a></li>
-            <li class="gal"><a>Galery</a></li>
-            <li class="bio"><a>Biography</a></li>
-            <li class="cont"><a>Contact</a></li>
-        </ul>
+
+    <nav class="header__nav">
+        <div class="header__container">
+            <div class="header__nav-box">
+                <ul>
+                    <li>
+                        <a href="#articulos"><span class="icon">🏠</span> Artículos</a>
+                    </li>
+                    <li>
+                        <a href="#proyectos"><span class="icon">📁</span> Proyectos</a>
+                    </li>
+                    <li>
+                        <a href="#galeria"><span class="icon">🖼️</span> Galería</a>
+                    </li>
+                    <li>
+                        <a href="#biografia"><span class="icon">👤</span> Biografía</a>
+                    </li>
+                    <li>
+                        <a href="#contacto"><span class="icon">✉️</span> Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 </header>
 
 <style>
-    header {
-        display: flex;
-        flex-direction: column;
+    .header {
+        background-color: var(--bg-color);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        width: 100%;
     }
 
-    .main {
-        padding: 10px;
+    .header__top {
+        padding: 1.5rem 0;
+    }
+
+    .header__container {
+        max-width: var(--breakpoint-desktop);
+        margin: 0 auto;
+        padding: 0 var(--spacing-md);
         display: flex;
         align-items: center;
-        border-bottom: 2px solid black;
     }
 
-    .logo {
-        flex: 1 1 0;
-        height: 45px;
+    .header__logo,
+    .header__actions {
+        flex: 1;
         display: flex;
     }
 
-    .logo_link {
-        width: 45px;
-        height: 45px;
-        background-image: url('logo.jpg');
-        background-size: cover;
+    .header__actions {
+        justify-content: flex-end;
     }
 
-    .autor {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex: 1 1 0;
-        height: 45px;
-    }
-
-    .buttons {
-        flex: 1 1 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 45px;
-    }
-
-    .lang_select {
-        display: flex;
-        flex-direction: column;
-        width: 40px;
-        height: 40px;
-        align-items: center;
-        justify-content: center;
-        margin-right: 10px;
-    }
-
-    .lang_button {
-        width: 30px;
-        height: 30px;
+    .header__logo img {
+        width: 55px;
+        height: 55px;
         border-radius: 50%;
-        background-image: url('https://flagcdn.com/w80/es.png');
-        background-size: cover;
+        object-fit: cover;
+        border: 2px solid var(--primary-color);
+        box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
     }
 
-    .lang_text {
-        font-size: 10px;
-        font-weight: bold;
+    .header__brand {
+        flex: 2;
+        text-align: center;
     }
 
-    .suscribe {
-        width: 200px;
-        height: 40px;
-        background-color: rgb(37, 99, 235);
-        border-radius: 10px;
-        color: white;
-        font-weight: bold;
+    .header__brand h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin: 0;
+        color: var(--secondary-color);
     }
 
-    nav {
+    .header__brand p {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--text-light);
+        margin-top: 2px;
+    }
+
+    .header__nav {
+        padding-bottom: 1rem;
+    }
+
+    .header__nav-box {
+        width: 100%;
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 0.8rem;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+
+    .header__nav ul {
         display: flex;
         justify-content: center;
-        align-items: center;
-        border-bottom: 2px solid black;
-    }
-
-    nav ul {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         list-style: none;
+        gap: 3rem;
+        margin: 0;
+        padding: 0;
     }
 
-    nav ul li {
-        padding: 10px;
+    .header__nav a {
+        font-family: var(--font-secondary);
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text-main);
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        transition: color 0.2s ease;
     }
 
-    nav ul li:hover {
+    .header__nav a:hover {
+        color: var(--primary-color);
+    }
+
+    .icon {
+        font-size: 1.1rem;
+    }
+
+    .btn-subscribe {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 0.8rem 1.8rem;
+        border-radius: 50px;
+        font-family: var(--font-secondary);
+        font-weight: 700;
+        font-size: 0.85rem;
         cursor: pointer;
-        background-color: rgb(220, 220, 220);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        white-space: nowrap;
+    }
+
+    .btn-subscribe:hover {
+        background-color: #1d4ed8;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    @media (max-width: 768px) {
+        .header__top {
+            padding: 1rem 0;
+        }
+
+        .header__brand h1 {
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+        }
+
+        .header__brand p {
+            font-size: 0.65rem;
+        }
+
+        .header__logo img {
+            width: 45px;
+            height: 45px;
+        }
+
+        .header__nav ul {
+            gap: 1.5rem;
+            overflow-x: auto;
+            justify-content: flex-start;
+            scrollbar-width: none;
+        }
+
+        .header__nav ul::-webkit-scrollbar {
+            display: none;
+        }
+
+        .btn-subscribe {
+            padding: 0.6rem 1rem;
+            font-size: 0.75rem;
+        }
     }
 </style>
