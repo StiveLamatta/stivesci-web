@@ -1,31 +1,33 @@
 :root {
-  /* Colores principales */
-  --primary-color: #2563eb;
-  /* Azul principal */
-  --secondary-color: #1e293b;
-  /* Azul oscuro */
-  --bg-color: #fafafa;
-  /* Fondo claro */
-  --card-bg: #fafafa;
-  /* Fondo tarjetas */
-  --text-main: #334155;
-  /* Texto principal */
-  --text-light: #64748b;
-  /* Texto secundario */
-  --border-color: #fafafa;
-  /* Bordes */
+    /* Colores principales */
+    --primary-color: #2563eb;
+    /* Azul principal */
+    --secondary-color: #1e293b;
+    /* Azul oscuro */
+    --bg-color: #fafafa;
+    /* Fondo claro */
+    --card-bg: #fafafa;
+    /* Fondo tarjetas */
+    --text-main: #334155;
+    /* Texto principal */
+    --text-light: #64748b;
+    /* Texto secundario */
+    --border-color: #fafafa;
+    /* Bordes */
 
-  /* Spacing y diseño */
-  --spacing-md: 1rem;
-  --spacing-lg: 2rem;
-  --border-radius: 8px;
+    /* Spacing y diseño */
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --header-height: 140px;
+    /* Altura aproximada del header de 2 niveles */
+    --border-radius: 8px;
 
-  /* Tipografía */
-  --font-primary: 'Lora', serif;
-  --font-secondary: 'Inter', system-ui;
+    /* Tipografía */
+    --font-primary: 'Lora', serif;
+    --font-secondary: 'Inter', system-ui;
 
-  /* Breakpoints */
-  --breakpoint-mobile: 480px;
-  --breakpoint-tablet: 768px;
-  --breakpoint-desktop: 1024px;
+    /* Breakpoints */
+    --breakpoint-mobile: 480px;
+    --breakpoint-tablet: 768px;
+    --breakpoint-desktop: 1024px;
 }

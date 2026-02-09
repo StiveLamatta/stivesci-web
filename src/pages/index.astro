@@ -8,19 +8,20 @@ import Carousel from '../components/Carousel.astro';
 
 <BaseBlog title="Stive Lamatta | Inicio">
     <div class="home">
-        <div class="recent-arts">
+        <div id="articulos" class="recent-arts">
             <RecentArts />
         </div>
-        <div class="hero">
+        <div id="biografia" class="hero">
             <Hero />
         </div>
-        <div class="feactured-apps">
+        <div id="proyectos" class="feactured-apps">
             <FeacturedApps />
         </div>
-        <div class="carousel">
+        <div id="galeria" class="carousel">
             <Carousel />
         </div>
     </div>
+    <div id="contacto"></div>
 </BaseBlog>
 
 <style>
