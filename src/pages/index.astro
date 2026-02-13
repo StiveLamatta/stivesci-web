@@ -1,27 +1,16 @@
 ---
 import BaseBlog from '../layout/BaseBlog.astro';
-import RecentArts from '../components/RecentArts.astro';
-import Hero from '../components/Hero.astro';
-import FeacturedApps from '../components/FeacturedApps.astro';
-import Carousel from '../components/Carousel.astro';
+import Profile from '../components/Profile/Profile.astro';
 ---
 
 <BaseBlog title="Stive Lamatta | Inicio">
     <div class="home">
-        <div id="articulos" class="recent-arts">
-            <RecentArts />
-        </div>
-        <div id="biografia" class="hero">
-            <Hero />
-        </div>
-        <div id="proyectos" class="feactured-apps">
-            <FeacturedApps />
-        </div>
-        <div id="galeria" class="carousel">
-            <Carousel />
-        </div>
+        <aside class="recentArts"></aside>
+        <article class="profiled">
+            <Profile />
+        </article>
+        <aside class="featuredApps"></aside>
     </div>
-    <div id="contacto"></div>
 </BaseBlog>
 
 <style>
@@ -29,33 +18,29 @@ import Carousel from '../components/Carousel.astro';
         display: grid;
         height: 70vh;
         grid-template-columns: 1fr 2fr 1fr;
-        grid-template-areas:
-            'recent-arts hero feactured-apps'
-            'carousel carousel carousel';
+        grid-template-areas: 'recentArtsAside profileMain featuredAppsAside';
         gap: var(--spacing-md);
     }
 
-    .recent-arts {
-        grid-area: recent-arts;
+    .recentArts {
+        grid-area: recentArtsAside;
     }
-    .hero {
-        grid-area: hero;
+
+    .profiled {
+        grid-area: profileMain;
     }
-    .feactured-apps {
-        grid-area: feactured-apps;
-    }
-    .carousel {
-        grid-area: carousel;
+
+    .featuredApps {
+        grid-area: featuredAppsAside;
     }
 
     @media (max-width: 768px) {
         .home {
             grid-template-columns: 1fr;
             grid-template-areas:
-                'hero'
-                'recent-arts'
-                'feactured-apps'
-                'carousel';
+                'profileMain'
+                'recentArtsAside'
+                'featuredAppsAside';
             height: auto;
         }
     }
