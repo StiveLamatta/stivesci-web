@@ -3,14 +3,14 @@
         "id": "id",
         "title": "Mi web de Epiciclos y sus matematicas internas",
         "description": "Asi es como desarrolle mi web de epicilos y aplique las matematicas de fourier",
-        "image": "src/assets/images/epy.png",
+        "image": "/images/epy.png",
         "link": "link"
     },
     {
         "id": "id",
         "title": "Mi web de Epiciclos y sus matematicas internas",
         "description": "Asi es como desarrolle mi web de epicilos y aplique las matematicas de fourier",
-        "image": "src/assets/images/epy.png",
+        "image": "/images/epy.png",
         "link": "link"
     }
 ]
