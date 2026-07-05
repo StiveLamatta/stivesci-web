@@ -1,0 +1,1423 @@
+---
+import proy from '../../data/proy.json';
+import skil from '../../data/skills.json';
+import cert from '../../data/certif.json';
+const proyectsList = proy;
+const pryoNavList = ['all', 'frontend', 'backend', 'mobile-apps', 'data-science', 'ai-automations', 'others'];
+const skillsList = skil;
+const certList = cert;
+const numColProyList = Math.ceil(proyectsList.length / 2);
+const numColCertList = Math.ceil(certList.length / 4);
+
+function getOrderCert(index: number): number {
+    return (index + 1) % 4 == 1 || (index + 1) % 4 == 2 ? 2 * Math.floor((index + 1) / 4) + ((index + 1) % 4) : 2 * numColCertList + 2 * Math.floor(index / 4) + ((index % 4) - 1);
+}
+
+function getOrderProy(index: number): number {
+    return (index + 1) % 2 == 1 ? Math.floor((index + 1) / 2) + 1 : numColProyList + Math.floor((index + 1) / 2);
+}
+---
+
+<article class="profile prof">
+    <section id="h_pf_about-me" class="profile__head profile__section">
+        <div class="profile__parent">
+            <div class="profile__parent-image">
+                <img class="profile__image" src="/profile.jpg" alt="Stive Lamatta" />
+            </div>
+        </div>
+
+        <div class="profile__networks">
+            <div class="profile__networks-content">
+                <div class="profile__person-info">
+                    <h2 class="profile__hello">Welcome I'm</h2>
+                    <h2 class="profile__name">Stive Lamatta</h2>
+                    <p class="profile__role">Data Scientist & Developer</p>
+                </div>
+                <div class="profile__center">
+                    <div class="profile__social">
+                        <a href="https://github.com/stivesci" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/stivelamatta" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com/stivesci" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                    </div>
+                    <div class="profile__content-ctv">
+                        <div class="profile__contact">
+                            <p class="profile__contact-label"><span class="profile__contact-label-text">Contact</span></p><a class="profile__contact-btn" href="mailto:stive@stivesci.com">stive@stivesci.com</a>
+                        </div>
+                        <div class="profile__cv">
+                            <a class="profile__cv-btn" href="./cv" target="_blank">CV ⬇️</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="profile__about-me">
+            <h2>Sobre Mi</h2>
+            <p>Hola, soy Stive Lamatta, un apasionado por la tecnología y la educación. Me encanta compartir mis conocimientos y aprender de los demás.</p>
+        </section>
+    </section>
+
+    <section id="h_pf_skills" class="profile__skills profile__section">
+        <div class="profile__skills-head">
+            <h2>Skills</h2>
+        </div>
+        <div class="profile__stack">
+            {
+                skillsList.map((sk) => (
+                    <div class="profile__stack-category">
+                        <div class="profile__stack-category-head">
+                            <h2>{sk.categoria}</h2>
+                        </div>
+                        <ul class="profile__stack-category-list">
+                            {sk.techs.map((s) => (
+                                <li class="profile__stack-category-list-item">
+                                    <img src={`${s.image}`} alt={`${s.tech}`} />
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <section id="h_pf_projects" class="profile__projects profile__section">
+        <h2 class="profile__projects-title">Projects</h2>
+        <div class="profile__projects-bar">
+            <nav class="profile__nav-projects">
+                <ul>
+                    <li class="profile__nav-projects-li active_nav-proy">
+                        <span>All</span>
+                    </li>
+                    <li class="profile__nav-projects-li">
+                        <span>Frontend</span>
+                    </li>
+                    <li class="profile__nav-projects-li">
+                        <span>Backend</span>
+                    </li>
+                    <li class="profile__nav-projects-li">
+                        <span>Mobile Apps</span>
+                    </li>
+                    <li class="profile__nav-projects-li">
+                        <span>Data Science</span>
+                    </li>
+                    <li class="profile__nav-projects-li">
+                        <span>AI Automations</span>
+                    </li>
+                    <li class="profile__nav-projects-li">
+                        <span>Others</span>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        {
+            pryoNavList.map((p) => (
+                <div id={`${p}`} class="profile__projects-list" style={p == 'all' ? 'display:grid;' : 'display:none;'}>
+                    {proyectsList
+                        .filter((proy) => proy.categories.includes(p))
+                        .map((py, index) => (
+                            <div class={`profile__projects-target profile__projects-target-${py.id}`} style={`order:${getOrderProy(index)}`}>
+                                <div class="profile__projects-target-img">
+                                    <img src={`${py.image}`} alt={`${py.title}`} />
+                                </div>
+                                <div class="profile__projects-target-content">
+                                    <div class="profile__projects-target-description">
+                                        <div class="profile__projects-target-title">
+                                            <h2>{py.title}</h2>
+                                            <p>{py.description}</p>
+                                        </div>
+                                    </div>
+                                    <div class="profile__proy-link-content">
+                                        <div>
+                                            <a href={`${py.enlace}`} class="profile__proy-link" rel="noopener noreferrer" aria-label="GitHub">
+                                                {' '}
+                                                <span class="fa-brands fa-github" /> Code
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a href={`${py.enlace}`} class="profile__proy-link">
+                                                {' '}
+                                                🖥️Preview
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <ul class="profile__projects-target-technologies">
+                                        {py.technologies.map((tech) => (
+                                            <li>
+                                                <div class="profile__projects-target-tech">
+                                                    <img src={`${tech.img}`} alt={`${tech.tech1}`} />
+                                                </div>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        ))}
+                </div>
+            ))
+        }
+
+        <button class="profile__projects-btn-der"> &gt </button>
+        <button class="profile__projects-btn-izq"> &lt </button>
+    </section>
+
+    <section id="h_pf_certifications" class="profile__certifications profile__section">
+        <div class="profile__certifications-head">
+            <h2>Certifications</h2>
+        </div>
+        <div class="profile__certifications-all">
+            <div class="profile__certifications-content">
+                {
+                    certList.map((cert, index) => (
+                        <div class="profile__certifications-content-item" style={`order:${getOrderCert(index)}`}>
+                            <div class="profile__certifications-content-all">
+                                <div class="profile__certifications-content-image profile__certifications-img">
+                                    <img class="profile__certifications-img-full" src={`${cert.image}`} alt={`${cert.title}`} />
+                                </div>
+                                <div class="profile__certifications-content-links profile__certifications-view">
+                                    <a class="profile__certifications-link-view">
+                                        <i class="fa-solid fa-eye" />
+                                    </a>
+                                    <a class="profile__certifications-link-page">
+                                        <i class="fa-solid fa-arrow-up-right-from-square" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+                <button class="profile__certifications-close">X</button>
+            </div>
+            <button class="profile__certifications-btn-der"> &gt </button>
+            <button class="profile__certifications-btn-izq"> &lt </button>
+        </div>
+    </section>
+
+    <section id="h_pf_contact" class="profile__contact-me profile__section">
+        <h2>Contact</h2>
+        <div class="profile__form-content">
+            <form class="profile__form" action="https://formspree.io/f/meerakkb" method="POST">
+                <label>
+                    <p>Correo</p>
+                    <input type="email" name="email" required />
+                </label>
+                <label>
+                    <p>Mensaje</p>
+                    <textarea style="resize:none;" name="message" placeholder="✍️Escribeme☺️" required></textarea>
+                </label>
+                <button> Send 📩</button>
+            </form>
+        </div>
+    </section>
+</article>
+
+<style>
+    .prof {
+        box-sizing: border-box;
+        height: 100%;
+    }
+
+    .profile__section {
+        margin: 50px 0 130px;
+        scroll-margin-top: 130px;
+        border-radius: 0 !important;
+        border-top: 2px solid rgb(8, 35, 210);
+    }
+
+    .profile__head {
+        display: grid;
+        border-radius: 20px;
+        height: 570px;
+        flex-direction: column;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 285px 285px;
+        width: 100%;
+        backdrop-filter: blur(5px);
+    }
+
+    .profile__parent {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: end;
+        width: 100%;
+    }
+
+    .profile__parent-image {
+        width: 75%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .profile__image {
+        width: 100%;
+        border-radius: 50%;
+        border: 2px solid rgb(19, 12, 222);
+        box-shadow: 0 0 15px 1px rgb(36, 112, 244);
+    }
+
+    .profile__networks {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        align-items: start;
+        justify-content: space-evenly;
+    }
+
+    .profile__networks-content {
+        display: flex;
+        flex-direction: column;
+        height: 93.4%;
+        width: 286px;
+        box-sizing: border-box;
+        justify-content: space-between;
+    }
+
+    .profile__person-info {
+        display: flex;
+        width: 100%;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        margin: 15px 0 0 0;
+    }
+
+    .profile__person-info h2,
+    .profile__person-info p {
+        margin: 0;
+    }
+
+    .profile__person-info h2:first-child {
+        font-size: 22px;
+    }
+
+    .profile__person-info h2:nth-child(2) {
+        font-size: 40px;
+    }
+
+    .profile__center {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 120px;
+        justify-content: space-between;
+    }
+
+    .profile__social {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
+
+    .profile__social .fa-brands {
+        transition: transform 0.3s;
+        filter: drop-shadow(1px 1px 2px rgb(9, 148, 106));
+    }
+
+    .profile__social .fa-brands:hover {
+        transform: scale(1.2);
+    }
+
+    .fa-github {
+        position: relative;
+        color: rgb(0, 0, 0);
+    }
+
+    .profile__social .fa-github::after {
+        position: absolute;
+        content: '';
+        width: 38px;
+        height: 38px;
+        top: 3.3%;
+        left: 12%;
+        background-color: rgb(255, 255, 254);
+        border-radius: 50%;
+        z-index: -1;
+    }
+
+    .profile__social .fa-github:hover {
+        transform: scale(1.2);
+    }
+
+    .fa-linkedin {
+        color: #0b65c3;
+        position: relative;
+    }
+
+    .profile__social .fa-linkedin::after {
+        position: absolute;
+        content: '';
+        width: 34px;
+        height: 34px;
+        top: 8%;
+        left: 16%;
+        background-color: rgb(255, 255, 254);
+        border-radius: 10%;
+        z-index: -1;
+    }
+
+    .fa-x-twitter {
+        color: black;
+        position: relative;
+    }
+
+    .profile__social .fa-x-twitter::after {
+        position: absolute;
+        content: '';
+        width: 9px;
+        height: 30px;
+        top: 12%;
+        left: 42%;
+        transform: skew(37deg);
+        background-color: rgb(255, 255, 254);
+        border-radius: 10%;
+        z-index: -1;
+    }
+
+    .profile__content-ctv {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .profile__contact {
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        width: 180px;
+        height: 30px;
+        border: 2px solid rgb(19, 12, 222);
+        border-radius: 20px;
+        background-color: rgb(116, 255, 232);
+        justify-content: space-between;
+    }
+
+    .profile__contact:hover .profile__contact-label {
+        transform: translate(-10px, 0);
+        cursor: default;
+    }
+
+    .profile__contact:hover .profile__contact-btn {
+        transform: translate(-5px, 0);
+        cursor: pointer;
+    }
+
+    .profile__contact-label {
+        box-sizing: border-box;
+        color: rgb(0, 0, 0);
+        border-radius: 20px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        background-color: rgb(5, 255, 238);
+        font-size: 15px;
+        padding: 7px;
+        outline: 2px solid rgb(19, 12, 222);
+        transition: transform 0.3s;
+    }
+
+    .profile__contact-label-text {
+        font-weight: bold;
+    }
+
+    .profile__contact-btn {
+        font-size: 12px;
+        font-weight: 700;
+        color: rgb(51, 8, 241);
+        position: relative;
+        right: 5px;
+        transition: transform 0.3s;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .profile__cv {
+        width: 80px;
+        border: 2px solid rgb(19, 12, 222);
+        border-radius: 20px;
+        text-align: center;
+        position: relative;
+        z-index: 50;
+        overflow: hidden;
+        background: rgb(136, 237, 255);
+        height: 30px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    .profile__cv-btn {
+        width: 100%;
+        transition: transform 0.5s;
+        font-weight: bold;
+    }
+
+    .profile__cv-btn:hover {
+        transform: scale(1.2);
+    }
+
+    /*
+.profile__cv-btn::after {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;          
+    height: 100%;
+    background-color: transparent;
+    transition:all 1s;
+    z-index:50;
+}
+
+.profile__cv-btn:hover::after {
+    width:20%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    white-space:nowrap;
+    overflow:hidden;
+    background-color:transparent;
+    height:100%;
+    border-radius: 20px;
+    position:absolute;
+    z-index:50;
+    top:0;
+    right:0;
+    transition:width 1s;
+}
+*/
+    .profile__about-me {
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        grid-column: 1 / span 2;
+    }
+
+    .profile__skills {
+        border-radius: 20px;
+        padding: 0px 20px 20px 20px;
+        display: flex;
+        flex-direction: column;
+        height: 504px;
+    }
+
+    .profile__skills-head {
+        flex: 0.01;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px;
+    }
+
+    .profile__skills-head h2 {
+        margin: 5px 0 0 0;
+        font-size: 35px;
+        transition: transform 0.3s;
+    }
+
+    .profile__skills-head:hover h2 {
+        transform: scale(1.2);
+        cursor: default;
+    }
+
+    .profile__stack {
+        border-radius: 20px;
+        flex: 0.99;
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        grid-template-rows: repeat(2, 50%);
+    }
+
+    .profile__stack-category {
+        box-sizing: border-box;
+        border: 1px solid black;
+        box-shadow: 0 0 5px 1px black;
+        border-radius: 20px;
+        margin: 10px;
+        transition: transform 0.3s;
+        backdrop-filter: blur(5px);
+    }
+
+    .profile__stack-category:hover {
+        transform: scale(1.05);
+        cursor: default;
+    }
+
+    .profile__stack-category-head {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20%;
+    }
+
+    .profile__stack-category-head h2 {
+        margin: 0;
+        transition: transform 0.3s;
+    }
+
+    .profile__stack-category-head:hover h2 {
+        transform: scale(1.2);
+        cursor: default;
+    }
+
+    .profile__stack-category-list {
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        height: 80%;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .profile__stack-category-list-item {
+        height: 50px;
+        width: 50px;
+        margin: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s;
+    }
+
+    .profile__stack-category-list-item:hover {
+        transform: scale(1.3);
+    }
+
+    .profile__stack-category-list-item img {
+        width: 100%;
+        filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.5));
+    }
+
+    .profile__st {
+        outline: 2px solid rgb(216, 16, 16);
+        border-radius: 20px;
+    }
+
+    .profile__projects {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        height: 550px;
+        position: relative;
+    }
+
+    .profile__projects-title {
+        text-align: center;
+        font-size: 35px;
+        margin: 5px 0 0 0;
+        transition: transform 0.3s;
+    }
+
+    .profile__projects-title:hover {
+        transform: scale(1.2);
+        cursor: default;
+    }
+
+    .profile__projects-bar {
+        display: flex;
+        width: 100%;
+    }
+
+    .profile__nav-projects {
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .profile__nav-projects ul {
+        display: flex;
+        list-style-type: none;
+        font-size: 10px;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        margin: 15px;
+        padding: 0;
+    }
+
+    .profile__nav-projects-li {
+        border-radius: 10px;
+        box-shadow: 0 0 2px 1px rgb(9, 31, 237);
+        padding: 5px 10px;
+        text-align: center;
+        font-weight: 800;
+        font-size: 14px;
+        margin: 5px;
+        backdrop-filter: blur(5px);
+        transition:
+            transform 0.3s,
+            background-color 0.3s,
+            box-shadow 0.3s;
+    }
+
+    .profile__nav-projects ul li:hover {
+        transform: scale(1);
+        background-color: rgb(110, 241, 255);
+        box-shadow: 2px 2px 3px 1px rgb(9, 31, 237);
+        cursor: pointer;
+        z-index: 50;
+    }
+
+    .active_nav-proy {
+        background-color: rgb(0, 229, 255);
+        transform: scale(1.1);
+        box-shadow: 2px 2px 3px 1px rgb(9, 31, 237);
+    }
+
+    .profile__nav-projects ul li span {
+        color: rgb(6, 36, 170);
+    }
+
+    .profile__projects-list {
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: repeat(4, 100%);
+        grid-template-rows: repeat(2, 48%);
+        width: 640px;
+        border-radius: 10px;
+        height: 450px;
+        overflow: hidden;
+        scroll-behavior: smooth;
+        margin: 0;
+        padding: 0;
+        row-gap: 2%;
+    }
+
+    .profile__projects-btn-izq,
+    .profile__projects-btn-der {
+        position: absolute;
+        color: rgb(11, 253, 212);
+        background-color: transparent;
+        border: none;
+        font-size: 60px;
+        top: calc(52%);
+        cursor: pointer;
+        z-index: 1;
+        margin: 0;
+        padding: 0;
+        width: 35px;
+        height: 60px;
+        border-radius: 20px;
+        line-height: 10px;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        transition: background-color 0.3s;
+    }
+
+    .profile__projects-btn-izq:hover,
+    .profile__projects-btn-der:hover {
+        background-image: linear-gradient(to left, rgb(105, 29, 246, 0.5), rgb(153, 3, 160, 0.5));
+        box-shadow: 0 0 5px 1px rgb(57, 15, 242);
+    }
+
+    .profile__projects-btn-izq {
+        left: -7px;
+        animation-name: projects-btn-izq;
+        background-image: linear-gradient(to right, transparent, rgb(5, 191, 238, 0.8));
+    }
+
+    .profile__projects-btn-der {
+        right: -7px;
+        animation-name: projects-btn-der;
+        background-image: linear-gradient(to left, transparent, rgb(5, 191, 238, 0.8));
+    }
+
+    @keyframes projects-btn-izq {
+        from {
+            transform: translate(0, 0);
+        }
+
+        to {
+            transform: translate(-7px, 0);
+        }
+    }
+
+    @keyframes projects-btn-der {
+        from {
+            transform: translate(0, 0);
+        }
+
+        to {
+            transform: translate(7px, 0);
+        }
+    }
+
+    .profile__projects-target {
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        justify-self: center;
+        text-align: center;
+        align-items: center;
+        align-self: center;
+        width: 100%;
+        height: 100%;
+        gap: 2%;
+    }
+
+    .profile__projects-target-img {
+        height: 100%; /*80*/
+        width: 53%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    .profile__projects-target-img img {
+        height: 100%;
+    }
+
+    .profile__projects-target-content {
+        display: flex;
+        height: 100%; /*80*/
+        width: 45%;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: start;
+    }
+
+    .profile__projects-target-description {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+    }
+
+    .profile__projects-target-title {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .profile__projects-target-title h2 {
+        margin: 0;
+        font-size: 20px;
+        text-align: left;
+    }
+
+    .profile__projects-target-title p {
+        margin: 0;
+        font-size: 15px;
+        text-align: left;
+    }
+
+    .profile__proy-link-content div {
+        display: inline-block;
+        margin-right: 7px;
+        transition: transform 0.3s;
+    }
+
+    .profile__proy-link-content div:hover {
+        transform: scale(1.15);
+    }
+
+    .profile__proy-link {
+        text-decoration: none;
+        color: rgb(20, 81, 185);
+        font-weight: 800;
+        border: 2px solid rgb(20, 81, 185);
+        border-radius: 10px;
+        padding: 5px 8px;
+        background-color: rgba(17, 231, 255, 0.34);
+    }
+
+    .profile__projects-target-technologies {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        width: 100%;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .profile__projects-target-technologies li {
+        display: flex;
+        width: 40px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        transition: transform 0.2s;
+        filter: drop-shadow(0px 0px 5px rgba(23, 20, 234, 0.689));
+    }
+
+    .profile__projects-target-technologies li:hover {
+        transform: scale(1.3);
+        cursor: pointer;
+    }
+
+    .profile__projects-target-tech {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile__projects-target-tech img {
+        width: 100%;
+    }
+
+    .profile__certifications {
+        height: 550px;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+    }
+
+    .profile__certifications-head {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile__certifications-head h2 {
+        margin: 5px 0 0;
+        padding: 0;
+        font-size: 20px;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .profile__certifications-all {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+        width: 640px;
+        position: relative;
+    }
+
+    .profile__certifications-content {
+        display: grid;
+        height: 100%;
+        width: 100%;
+        grid-template-columns: repeat(6, 50%);
+        grid-template-rows: repeat(2, 50%);
+        overflow: hidden;
+        scroll-behavior: smooth;
+    }
+
+    .profile__certifications-content-item {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile__certifications-content-all {
+        width: calc(4 * 66px);
+        height: calc(4 * 51px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile__certifications-content-all:hover .profile__certifications-view {
+        display: flex;
+        cursor: pointer;
+    }
+
+    .profile__certifications-content-all:hover .profile__certifications-img {
+        cursor: pointer;
+        transform: scale(1.1);
+        opacity: 0.5;
+    }
+
+    .profile__certifications-content-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        border: 1px solid blue;
+        transition:
+            transform 0.3s,
+            opacity 0.3s;
+    }
+
+    .profile__certifications-img-full {
+        width: 100%;
+        height: 100%;
+        transition:
+            position 0.3s,
+            width 0.4s,
+            height 0.4s;
+    }
+
+    .profile__certifications-close {
+        display: none;
+        position: fixed;
+        padding: 5px 10px;
+        top: 1px;
+        right: 18%;
+        border-radius: 50%;
+        border: 1px solid black;
+        background-color: transparent;
+        z-index: 600;
+        cursor: pointer;
+        font-size: 20px;
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+    }
+
+    .profile__certifications-close:hover {
+        background-color: rgb(23, 223, 56);
+    }
+
+    .profile__certifications-content-links {
+        position: absolute;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        top: calc(50% - 16px);
+        left: calc(50% - 50px);
+        width: 100px;
+        height: 32px;
+        padding: 5px;
+        z-index: 0;
+        gap: 10px;
+        /*background-color:rgb(84, 213, 222,0.8);*/
+        border-radius: 20px;
+    }
+
+    .profile__certifications-content-links a {
+        height: 80%;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(59, 14, 107);
+        padding: 5px;
+        opacity: 0.7;
+        transition: transform 0.3s;
+    }
+
+    .profile__certifications-content-links a:hover {
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
+
+    .profile__certifications-image-full {
+        width: 100dvw;
+        height: 100dvh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(11, 169, 111, 0.927);
+        z-index: 500;
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+
+    .profile__certifications-link-view-full {
+        position: fixed;
+        opacity: 1;
+        width: calc(13 * 66px);
+        height: calc(13 * 51px);
+        top: calc(50% - (13 * 51px) / 2);
+        left: calc(50% - (13 * 66px) / 2);
+        z-index: 500;
+        transition: none;
+    }
+
+    .profile__certifications-content-links i {
+        font-size: 20px;
+        line-height: 100%;
+        color: rgb(19, 221, 214);
+    }
+
+    .profile__certifications-btn-izq,
+    .profile__certifications-btn-der {
+        position: absolute;
+        color: rgb(11, 253, 212);
+        background-color: transparent;
+        border: none;
+        font-size: 60px;
+        top: calc(50% - 30px);
+        cursor: pointer;
+        z-index: 1;
+        margin: 0;
+        padding: 0;
+        width: 35px;
+        height: 60px;
+        border-radius: 20px;
+        line-height: 10px;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        transition: background-color 0.3s;
+    }
+
+    .profile__certifications-btn-izq:hover,
+    .profile__certifications-btn-der:hover {
+        background-image: linear-gradient(to left, rgb(105, 29, 246, 0.5), rgb(153, 3, 160, 0.5));
+        box-shadow: 0 0 5px 1px rgb(57, 15, 242);
+    }
+
+    .profile__certifications-btn-izq {
+        left: -35px;
+        animation-name: certif-btn-izq;
+        background-image: linear-gradient(to right, transparent, rgb(5, 191, 238, 0.8));
+    }
+
+    .profile__certifications-btn-der {
+        right: -35px;
+        animation-name: certif-btn-der;
+        background-image: linear-gradient(to left, transparent, rgb(5, 191, 238, 0.8));
+    }
+
+    @keyframes certif-btn-izq {
+        from {
+            transform: translate(0, 0);
+        }
+
+        to {
+            transform: translate(-7px, 0);
+        }
+    }
+
+    @keyframes certif-btn-der {
+        from {
+            transform: translate(0, 0);
+        }
+
+        to {
+            transform: translate(7px, 0);
+        }
+    }
+
+    .profile__contact-me {
+        height: 550px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 35px;
+    }
+
+    .profile__contact-me h2 {
+        font-size: 35px;
+        margin: 5px 0 0 0;
+        padding: 0;
+    }
+
+    .profile__form-content {
+        width: 500px;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .profile__form {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .profile__form label {
+        width: 500px;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .profile__form label p {
+        font-size: 30px;
+        font-weight: 500;
+        margin: 0 0 20px;
+        padding: 0;
+    }
+
+    .profile__form label input {
+        box-sizing: border-box;
+        padding: 5px 10px;
+        width: 50%;
+        border-radius: 20px;
+        border: 3px solid black;
+    }
+
+    .profile__form label input:focus {
+        outline: 3px solid rgb(0, 255, 242);
+    }
+
+    .profile__form label textarea {
+        box-sizing: border-box;
+        font-weight: bold;
+        width: 100%;
+        height: 50%;
+        color: rgb(0, 72, 255);
+        padding: 10px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 20px;
+        border: 3px solid black;
+    }
+
+    .profile__form label textarea:focus {
+        outline: 3px solid rgb(0, 255, 242);
+    }
+
+    .profile__form label textarea::placeholder {
+        color: rgb(0, 98, 255);
+    }
+
+    .profile__form button {
+        margin: 0;
+        width: 120px;
+        height: 100px;
+        border-radius: 20px;
+        background-color: #00ffe1;
+        border: 3px solid black;
+        color: rgb(0, 64, 255);
+        font-weight: bold;
+        font-size: 20px;
+        padding: 10px;
+        transition:
+            background-color 0.3s,
+            transform 0.3s;
+    }
+
+    .profile__form button:hover {
+        cursor: pointer;
+        background-color: #04ff92;
+        transform: scale(1.1);
+    }
+</style>
+
+<script define:vars={{ proyectsList }}>
+    const sections = document.querySelectorAll('.profile__section');
+    const active = document.querySelectorAll('.profile__nav-list a');
+
+    const elProyList = document.querySelector('.profile__projects-list');
+
+    const elProyBtnDer = document.querySelector('.profile__projects-btn-der');
+    const elProyBtnIzq = document.querySelector('.profile__projects-btn-izq');
+
+    const certifLinkViewFull = document.querySelectorAll('.profile__certifications-link-view');
+    const certifCloseImg = document.querySelector('.profile__certifications-close');
+    const cuerpo = document.querySelector('body');
+
+    const elCertifList = document.querySelector('.profile__certifications-content');
+
+    const elCertifBtnDer = document.querySelector('.profile__certifications-btn-der');
+    const elCertifBtnIzq = document.querySelector('.profile__certifications-btn-izq');
+
+    const btnProyBar = document.querySelectorAll('.profile__nav-projects-li');
+
+    const contentProy = document.getElementById('h_pf_projects');
+
+    let certifLinkView;
+    let certifLinkImg;
+    let certifParent;
+
+    let checkProy;
+    let updateProy;
+
+    if (elProyBtnDer) {
+        elProyBtnDer.addEventListener('click', moveRight);
+    }
+    if (elProyBtnIzq) {
+        elProyBtnIzq.addEventListener('click', moveLeft);
+    }
+
+    if (certifLinkViewFull) {
+        certifLinkViewFull.forEach((el) => el.addEventListener('click', viewFull));
+    }
+    if (certifCloseImg) {
+        certifCloseImg.addEventListener('click', closeImg);
+    }
+
+    if (elCertifBtnDer) {
+        elCertifBtnDer.addEventListener('click', moveCertifRight);
+    }
+    if (elCertifBtnIzq) {
+        elCertifBtnIzq.addEventListener('click', moveCertifLeft);
+    }
+
+    if (btnProyBar) {
+        btnProyBar.forEach((btn) => {
+            /*  btn.addEventListener("mouseover", hoverProy );*/
+            btn.addEventListener('click', clickProy);
+        });
+    }
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                active.forEach((ac) => ac.classList.remove('active'));
+                console.log('remover');
+                const id = entry.target.getAttribute('id');
+                console.log('ObtenerID', id);
+                const text = document.querySelector(`a[href="#${id}"]`);
+                text?.classList.add('active');
+                console.log('agregar');
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach((section) => {
+        observer.observe(section);
+    });
+
+    function moveRight() {
+        if (elProyList && elProyList.scrollLeft % 640 == 0) {
+            elProyList.scrollLeft += 640;
+        }
+    }
+
+    function moveLeft() {
+        if (elProyList && elProyList.scrollLeft % 640 == 0) {
+            elProyList.scrollLeft -= 640;
+        }
+    }
+
+    function viewFull(event) {
+        certifParent = event.target.closest('.profile__certifications-content-all');
+        certifLinkView = certifParent.querySelector('.profile__certifications-content-image');
+        certifLinkImg = certifParent.querySelector('.profile__certifications-img-full');
+
+        certifLinkView?.classList.remove('profile__certifications-img');
+        certifLinkView?.classList.add('profile__certifications-image-full');
+        certifLinkImg?.classList.add('profile__certifications-link-view-full');
+        certifCloseImg.style.display = 'inline-block';
+        cuerpo.style.overflow = 'hidden';
+    }
+
+    function closeImg() {
+        certifLinkView?.classList.add('profile__certifications-img');
+        certifLinkView?.classList.remove('profile__certifications-image-full');
+        certifLinkImg?.classList.remove('profile__certifications-link-view-full');
+        certifCloseImg.style.display = 'none';
+        cuerpo.style.overflow = 'auto';
+    }
+
+    function moveCertifRight() {
+        console.log('derecha', elCertifList.scrollLeft);
+        if (elCertifList && elCertifList.scrollLeft % 640 == 0) {
+            elCertifList.scrollLeft += 640;
+        }
+    }
+
+    function moveCertifLeft() {
+        console.log('isquierda', elCertifList.scrollLeft);
+        if (elCertifList && elCertifList.scrollLeft % 640 == 0) {
+            elCertifList.scrollLeft -= 640;
+        }
+    }
+
+    /*
+    function getOrderProy(index) {
+        return (
+            ( ((index+1) % 2 == 1) )
+            ? ( Math.floor((index+1)/2) + 1 )
+            : ( numColProyList + Math.floor((index+1)/2) )
+            )
+    }
+
+    function filterCatProy(proy) {
+        console.log(proy.categories);
+        return proy.categories.includes(checkProy)
+    }
+
+
+    function hoverProy(event) {
+        checkProy = event.currentTarget.children[0].innerHTML.toLowerCase();
+        updateProy = "";
+        if (!(contentProy?.querySelector(`#${checkProy}`))) {
+            let filterProy = proyectsList.filter(filterCatProy);
+            console.log(filterProy);
+            filterProy.forEach((up,index) => {
+                console.log(up,"hola");
+                updateProy += 
+                `<div class= "profile__projects-target" style="order:${getOrderProy(index)}">
+                    <div class="profile__projects-target-img">
+                        <img src="${up.image}" alt="${up.title}" />
+                    </div>
+                    <div class="profile__projects-target-content">
+                        <div class="profile__projects-target-description">
+                            <div class="profile__projects-target-title">
+                                <h2>${up.title}</h2>
+                                <p>${up.description}</p>
+                            </div>
+                        </div>    
+                        <div class="profile__proy-link-content"> 
+                            <div><a href="${up.enlace}" class="profile__proy-link" rel="noopener noreferrer" aria-label="GitHub"> <span class="fa-brands fa-github"></span> Code</a></div>                
+                            <div><a href="${up.enlace}" class="profile__proy-link"> 🖥️Preview</a></div>                
+                        </div>
+                        <ul class="profile__projects-target-technologies">
+                            ${(() => {
+                                let techUp = "";
+                                up.technologies.forEach( (tech) => (
+                                    techUp +=
+                                    `<li> 
+                                        <div class="profile__projects-target-tech">
+                                            <img src="${tech.img}" alt="${tech.tech1}"/>
+                                        </div>
+                                    </li>`
+                                ));
+                                return techUp;
+                            })()}
+                        </ul>
+                    </div>
+                </div>`
+            });
+            updateProy = `<div id="${checkProy}" class="profile__projects-list" style="display:none;"> ${updateProy}</div>`;
+            contentProy.insertAdjacentHTML("beforeend", updateProy);
+        };
+        console.log(updateProy,"haber");
+    }
+*/
+
+    function clickProy(event) {
+        let chackClickProy = event.currentTarget.children[0].innerHTML.toLowerCase().replace(' ', '-');
+        console.log(chackClickProy, 'haber');
+        contentProy.querySelectorAll('.profile__projects-list').forEach((e) => (e.style = 'display:none'));
+        console.log(contentProy.querySelector(`#${chackClickProy}`));
+        if (contentProy.querySelector(`#${chackClickProy}`)) {
+            contentProy.querySelector(`#${chackClickProy}`).style = 'display:grid;';
+            btnProyBar.forEach((btn) => btn.classList.remove('active_nav-proy'));
+            event.currentTarget.classList.add('active_nav-proy');
+        }
+    }
+</script>

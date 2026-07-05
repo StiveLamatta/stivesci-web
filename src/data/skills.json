@@ -1,0 +1,118 @@
+[
+    {
+        "id": [
+            "id"
+        ],
+        "categoria": "Frontend",
+        "techs": [
+            {
+                "tech": "React",
+                "image": "src/assets/images/techs/frontend/react.png"
+            },
+            {
+                "tech": "Astro",
+                "image": "src/assets/images/techs/frontend/astro.svg"
+            },
+            {
+                "tech": "svelte",
+                "image": "src/assets/images/techs/frontend/svelte.png"
+            },
+            {
+                "tech": "Tailwind",
+                "image": "src/assets/images/techs/frontend/tailwind.png"
+            },
+            {
+                "tech": "TypeScript",
+                "image": "src/assets/images/techs/frontend/typescript.png"
+            },
+            {
+                "tech": "JavaScript",
+                "image": "src/assets/images/techs/frontend/js.png"
+            },
+            {
+                "tech": "HTML",
+                "image": "src/assets/images/techs/frontend/html.png"
+            },
+            {
+                "tech": "CSS",
+                "image": "src/assets/images/techs/frontend/css.png"
+            }
+        ]
+    },
+    {
+        "id": [
+            "id"
+        ],
+        "categoria": "Backend",
+        "techs": [
+            {
+                "tech": "django",
+                "image": "src/assets/images/techs/backend/django.png"
+            },
+            {
+                "tech": "Node.js",
+                "image": "src/assets/images/techs/backend/node.png"
+            },
+            {
+                "tech": "SQL",
+                "image": "src/assets/images/techs/backend/sql.png"
+            }
+        ]
+    },
+    {
+        "id": [
+            "id"
+        ],
+        "categoria": "Ai & Data",
+        "techs": [
+            {
+                "tech": "TensorFlow",
+                "image": "src/assets/images/techs/ai y data/tf.png"
+            },
+            {
+                "tech": "Scikit-Learn",
+                "image": "src/assets/images/techs/ai y data/scikitlearn.png"
+            },
+            {
+                "tech": "Pandas",
+                "image": "src/assets/images/techs/ai y data/pandas.png"
+            },
+            {
+                "tech": "NumPy",
+                "image": "src/assets/images/techs/ai y data/numpy.png"
+            },
+            {
+                "tech": "Matplotlib",
+                "image": "src/assets/images/techs/ai y data/matplolib.png"
+            },
+            {
+                "tech": "Seaborn",
+                "image": "src/assets/images/techs/ai y data/seabor.png"
+            }
+        ]
+    },
+    {
+        "id": [
+            "id"
+        ],
+        "categoria": "Sistema & Core",
+        "techs": [
+            {
+                "tech": "Rust",
+                "image": "src/assets/images/techs/system y core/rust.png"
+            },
+            {
+                "tech": "Bash",
+                "image": "src/assets/images/techs/system y core/bash.png"
+            },
+            {
+                "tech": "Git",
+                "image": "src/assets/images/techs/system y core/git.png"
+            },
+            {
+                "tech": "GitHub",
+                "image": "src/assets/images/techs/system y core/github.png"
+            }
+        ]
+    }
+]

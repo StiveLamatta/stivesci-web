@@ -1,0 +1,255 @@
+---
+import proyData from '../../data/proy.json';
+
+// We'll just take the top 3 or 4 projects to not overwhelm the sidebar.
+const projects = proyData.slice(0, 4);
+---
+
+<section class="featuredApps">
+    <div class="featuredApps__header">
+        <div class="featuredApps__indicator"></div>
+        <h2 class="featuredApps__title">Proyectos Destacados</h2>
+    </div>
+
+    <div class="featuredApps__list">
+        {
+            projects.map((proy) => (
+                <article class="projectCard">
+                    <a href={proy.enlace.startsWith('http') ? proy.enlace : `https://${proy.enlace}`} target="_blank" rel="noopener noreferrer" class="projectCard__link" aria-label={`Ver proyecto ${proy.title}`}>
+                        <div class="projectCard__visual">
+                            <img class="projectCard__img" src={proy.image} alt={proy.title} loading="lazy" />
+                            <div class="projectCard__overlay">
+                                <span class="projectCard__action">Explorar</span>
+                            </div>
+                        </div>
+                        <div class="projectCard__content">
+                            <h3 class="projectCard__name">{proy.title}</h3>
+                            <p class="projectCard__desc">{proy.description}</p>
+                            {proy.technologies && proy.technologies.length > 0 && (
+                                <ul class="projectCard__techs">
+                                    {proy.technologies.slice(0, 4).map((tech) => (
+                                        <li class="projectCard__techItem">
+                                            <img src={tech.img} alt={tech.tech1} title={tech.tech1} class="projectCard__techIcon" />
+                                        </li>
+                                    ))}
+                                    {proy.technologies.length > 4 && <li class="projectCard__techItem projectCard__techMore">+{proy.technologies.length - 4}</li>}
+                                </ul>
+                            )}
+                        </div>
+                    </a>
+                </article>
+            ))
+        }
+    </div>
+</section>
+
+<style>
+    .featuredApps {
+        box-sizing: border-box;
+        width: 100%;
+        position: sticky;
+        top: 80px;
+        padding: 20px 20px 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+        /* Hide scrollbar for a cleaner look */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .featuredApps::-webkit-scrollbar {
+        display: none;
+    }
+
+    .featuredApps__header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .featuredApps__indicator {
+        width: 8px;
+        height: 8px;
+        background-color: #22dd8a;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #22dd8a;
+        animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(0.8);
+            opacity: 0.5;
+        }
+        50% {
+            transform: scale(1.2);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(0.8);
+            opacity: 0.5;
+        }
+    }
+
+    .featuredApps__title {
+        font-family: 'SN Pro', sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.95);
+        margin: 0;
+        letter-spacing: -0.02em;
+    }
+
+    .featuredApps__list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .projectCard {
+        position: relative;
+        border-radius: 16px;
+        background: rgba(10, 15, 30, 0.4);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        transform-origin: center bottom;
+    }
+
+    .projectCard:hover {
+        transform: translateY(-6px) scale(1.02);
+        background: rgba(20, 25, 45, 0.5);
+        border-color: rgba(255, 255, 255, 0.15);
+        box-shadow:
+            0 12px 30px rgba(0, 0, 0, 0.2),
+            0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    }
+
+    .projectCard__link {
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .projectCard__visual {
+        position: relative;
+        width: 100%;
+        height: 140px;
+        background: #000;
+        overflow: hidden;
+    }
+
+    .projectCard__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.8;
+        transition:
+            opacity 0.5s ease,
+            transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .projectCard:hover .projectCard__img {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+
+    .projectCard__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%);
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        padding: 12px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .projectCard:hover .projectCard__overlay {
+        opacity: 1;
+    }
+
+    .projectCard__action {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 700;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(4px);
+        padding: 4px 10px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .projectCard__content {
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .projectCard__name {
+        font-family: 'Lora', serif;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.95);
+        line-height: 1.2;
+    }
+
+    .projectCard__desc {
+        font-size: 13px;
+        line-height: 1.5;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.65);
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .projectCard__techs {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin: 8px 0 0 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .projectCard__techItem {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 3px;
+        box-sizing: border-box;
+    }
+
+    .projectCard__techIcon {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .projectCard__techMore {
+        font-size: 10px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.8);
+        background: rgba(0, 0, 0, 0.3);
+    }
+</style>

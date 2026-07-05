@@ -1,0 +1,61 @@
+---
+
+---
+
+<nav class="profile__nav">
+    <ul class="profile__nav-list">
+        <li class="profile__list">
+            <a class="profile__link-nav" href="#h_pf_about-me">About me</a>
+        </li>
+        <li class="profile__list">
+            <a class="profile__link-nav" href="#h_pf_skills">Skills</a>
+        </li>
+        <li class="profile__list">
+            <a class="profile__link-nav" href="#h_pf_projects">Projects</a>
+        </li>
+        <li class="profile__list">
+            <a class="profile__link-nav" href="#h_pf_certifications">ceritfications</a>
+        </li>
+        <li class="profile__list">
+            <a class="profile__link-nav" href="#h_pf_contact">Contact</a>
+        </li>
+    </ul>
+</nav>
+
+<style>
+    .profile__nav {
+        display: flex;
+        width: 50%;
+        height: 60px;
+        position: fixed;
+        top: 57px;
+        justify-content: center;
+        align-items: center;
+        z-index: 70;
+        margin: 0;
+    }
+
+    .profile__nav-list {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60%;
+        height: 35px;
+        gap: 20px;
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        color: white;
+        background-color: rgb(26, 151, 240);
+    }
+
+    .profile__link-nav {
+        color: white;
+        text-decoration: none;
+    }
+
+    .active {
+        color: rgb(0, 255, 221);
+        font-weight: bold;
+    }
+</style>
