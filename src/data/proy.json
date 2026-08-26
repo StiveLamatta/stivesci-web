@@ -1,262 +1,42 @@
 [
     {
         "id": 1,
-        "title": "Web de Creacion de epiciclos",
-        "description": "Web para la creacion de epiciclos, que te permite subir imagenes y con multiples epicilos dibujarla, usando diferentes formas personalizadas ademas de circulos",
-        "enlace": "epyciclo.stivesci.com",
+        "title": "Epiciclos — Visualizador de Series de Fourier",
+        "description": "Aplicación interactiva de matemáticas visuales que descompone trazos y figuras en órbitas de vectores rotatorios (epiciclos) mediante la Transformada Discreta de Fourier (DFT). Incluye interpolación por splines Catmull-Rom, ajuste dinámico de velocidades, exportación de video en MP4/WebM y persistencia en la nube.",
+        "enlace": "https://epy.stivesci.com",
+        "github": "https://github.com/StiveLamatta/epiciclos",
         "image": "/images/proy/epy.gif",
         "categories": [
             "all",
             "frontend",
-            "backend",
-            "mobile-apps",
-            "data-science",
-            "ai-automations"
+            "data-science"
+        ],
+        "highlights": [
+            "Transformada Discreta de Fourier (DFT) en tiempo real",
+            "Renderizado en HTML5 Canvas con Konva.js",
+            "Grabación y renderizado de video en el cliente con MediaRecorder",
+            "Autenticación y base de datos con Supabase"
         ],
         "technologies": [
             {
-                "tech1": "t1",
-                "img": "/images/techs/frontend/js.png"
+                "tech1": "React",
+                "img": "/images/techs/frontend/react.png"
             },
             {
-                "tech1": "t2",
-                "img": "/images/techs/frontend/html.png"
-            },
-            {
-                "tech1": "t3",
-                "img": "/images/techs/frontend/tailwind.png"
-            },
-            {
-                "tech1": "t4",
+                "tech1": "TypeScript",
                 "img": "/images/techs/frontend/typescript.png"
             },
             {
-                "tech1": "t5",
-                "img": "/images/techs/frontend/nextjs.png"
-            }
-        ]
-    },
-    {
-        "id": 1,
-        "title": "Web de Creacion de epiciclos",
-        "description": "Web para la creacion de epiciclos",
-        "enlace": "epyciclo.stivesci.com",
-        "image": "/images/proy/epy.gif",
-        "categories": [
-            "all"
-        ],
-        "technologies": [
-            {
-                "tech1": "t1",
+                "tech1": "JavaScript",
                 "img": "/images/techs/frontend/js.png"
             },
             {
-                "tech1": "t2",
-                "img": "/images/techs/frontend/html.png"
-            },
-            {
-                "tech1": "t3",
+                "tech1": "Tailwind",
                 "img": "/images/techs/frontend/tailwind.png"
             },
             {
-                "tech1": "t4",
-                "img": "/images/techs/frontend/typescript.png"
-            },
-            {
-                "tech1": "t5",
-                "img": "/images/techs/frontend/nextjs.png"
-            }
-        ]
-    },
-    {
-        "id": 1,
-        "title": "Web de Creacion de epiciclos",
-        "description": "Web para la creacion de epiciclos",
-        "enlace": "epyciclo.stivesci.com",
-        "image": "/images/proy/epy.gif",
-        "categories": [
-            "all"
-        ],
-        "technologies": [
-            {
-                "tech1": "t1",
-                "img": "/images/techs/frontend/js.png"
-            },
-            {
-                "tech1": "t2",
-                "img": "/images/techs/frontend/html.png"
-            },
-            {
-                "tech1": "t3",
-                "img": "/images/techs/frontend/tailwind.png"
-            },
-            {
-                "tech1": "t4",
-                "img": "/images/techs/frontend/typescript.png"
-            },
-            {
-                "tech1": "t5",
-                "img": "/images/techs/frontend/nextjs.png"
-            }
-        ]
-    },
-    {
-        "id": 1,
-        "title": "Web de Creacion de epiciclos",
-        "description": "Web para la creacion de epiciclos",
-        "enlace": "epyciclo.stivesci.com",
-        "image": "/images/proy/epy.gif",
-        "categories": [
-            "all"
-        ],
-        "technologies": [
-            {
-                "tech1": "t1",
-                "img": "/images/techs/frontend/js.png"
-            },
-            {
-                "tech1": "t2",
-                "img": "/images/techs/frontend/html.png"
-            },
-            {
-                "tech1": "t3",
-                "img": "/images/techs/frontend/tailwind.png"
-            },
-            {
-                "tech1": "t4",
-                "img": "/images/techs/frontend/typescript.png"
-            },
-            {
-                "tech1": "t5",
-                "img": "/images/techs/frontend/nextjs.png"
-            }
-        ]
-    },
-    {
-        "id": 1,
-        "title": "Web de Creacion de epiciclos",
-        "description": "Web para la creacion de epiciclos",
-        "enlace": "epyciclo.stivesci.com",
-        "image": "/images/proy/epy.gif",
-        "categories": [
-            "all"
-        ],
-        "technologies": [
-            {
-                "tech1": "t1",
-                "img": "/images/techs/frontend/js.png"
-            },
-            {
-                "tech1": "t2",
-                "img": "/images/techs/frontend/html.png"
-            },
-            {
-                "tech1": "t3",
-                "img": "/images/techs/frontend/tailwind.png"
-            },
-            {
-                "tech1": "t4",
-                "img": "/images/techs/frontend/typescript.png"
-            },
-            {
-                "tech1": "t5",
-                "img": "/images/techs/frontend/nextjs.png"
-            }
-        ]
-    },
-    {
-        "id": 1,
-        "title": "Web de Creacion de epiciclos",
-        "description": "Web para la creacion de epiciclos",
-        "enlace": "epyciclo.stivesci.com",
-        "image": "/images/proy/epy.gif",
-        "categories": [
-            "all"
-        ],
-        "technologies": [
-            {
-                "tech1": "t1",
-                "img": "/images/techs/frontend/js.png"
-            },
-            {
-                "tech1": "t2",
-                "img": "/images/techs/frontend/html.png"
-            },
-            {
-                "tech1": "t3",
-                "img": "/images/techs/frontend/tailwind.png"
-            },
-            {
-                "tech1": "t4",
-                "img": "/images/techs/frontend/typescript.png"
-            },
-            {
-                "tech1": "t5",
-                "img": "/images/techs/frontend/nextjs.png"
-            }
-        ]
-    },
-    {
-        "id": 1,
-        "title": "Web de Creacion de epiciclos",
-        "description": "Web para la creacion de epiciclos",
-        "enlace": "epyciclo.stivesci.com",
-        "image": "/images/proy/epy.gif",
-        "categories": [
-            "all"
-        ],
-        "technologies": [
-            {
-                "tech1": "t1",
-                "img": "/images/techs/frontend/js.png"
-            },
-            {
-                "tech1": "t2",
-                "img": "/images/techs/frontend/html.png"
-            },
-            {
-                "tech1": "t3",
-                "img": "/images/techs/frontend/tailwind.png"
-            },
-            {
-                "tech1": "t4",
-                "img": "/images/techs/frontend/typescript.png"
-            },
-            {
-                "tech1": "t5",
-                "img": "/images/techs/frontend/nextjs.png"
-            }
-        ]
-    },
-    {
-        "id": 1,
-        "title": "Web de Creacion de epiciclos",
-        "description": "Web para la creacion de epiciclos",
-        "enlace": "epyciclo.stivesci.com",
-        "image": "/images/proy/epy.gif",
-        "categories": [
-            "all"
-        ],
-        "technologies": [
-            {
-                "tech1": "t1",
-                "img": "/images/techs/frontend/js.png"
-            },
-            {
-                "tech1": "t2",
-                "img": "/images/techs/frontend/html.png"
-            },
-            {
-                "tech1": "t3",
-                "img": "/images/techs/frontend/tailwind.png"
-            },
-            {
-                "tech1": "t4",
-                "img": "/images/techs/frontend/typescript.png"
-            },
-            {
-                "tech1": "t5",
-                "img": "/images/techs/frontend/nextjs.png"
+                "tech1": "SQL / Supabase",
+                "img": "/images/techs/backend/sql.png"
             }
         ]
     }

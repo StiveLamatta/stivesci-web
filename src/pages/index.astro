@@ -1,118 +1,21 @@
 ---
 import BaseBlog from '../layout/BaseBlog.astro';
 import Profile from '../components/Profile/Profile.astro';
-import RecentArts from '../components/RecentArts/RecentArts.astro';
-import FeacturedApps from '../components/FeacturedApps/FeacturedApps.astro';
-import NavProfile from '../components/NavProfile/NavProfile.astro';
 ---
 
-<BaseBlog title="Stive Lamatta | Inicio">
-    <div class="home">
-        <aside class="recentArts">
-            <RecentArts />
-        </aside>
-        <article class="profile">
-            <NavProfile />
-            <div class="gradient"></div>
-            <div class="profile__content">
-                <Profile />
-            </div>
-        </article>
-        <aside class="featuredApps">
-            <FeacturedApps />
-        </aside>
-    </div>
+<BaseBlog title="Stive Lamatta | Estudiante de Matemáticas & Desarrollador" description="Portafolio de Stive Lamatta — Estudiante de Matemáticas apasionado por la programación, la computación visual y las series de Fourier (Epiciclos).">
+    <main class="home-main">
+        <Profile />
+    </main>
 </BaseBlog>
 
 <style>
-    :root {
-        --fade-start: 20px;
-        --fade-end: 120px;
-    }
-
-    .home {
-        display: grid;
+    .home-main {
+        width: 100%;
         min-height: 92dvh;
-        grid-template-columns: 1fr 2fr 1fr;
-        grid-template-areas: 'recentArtsAside profileMain featuredAppsAside';
-        gap: 20px;
-        padding: 0 10px;
-        align-items: start;
-    }
-
-    .recentArts {
-        grid-area: recentArtsAside;
-    }
-
-    .profile {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
         box-sizing: border-box;
-        grid-area: profileMain;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        margin: 0;
-        padding-top: 22px;
-    }
-
-    .gradient {
-        width: 52%;
-        height: 120px;
-        position: fixed;
-        left: 24%;
-        top: 0px;
-        z-index: 60;
-        background-color: RGB(36, 112, 244);
-        mask-image: linear-gradient(to bottom, black 70px, transparent 120px);
-    }
-
-    .profile__content {
-        margin-top: 0;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .featuredApps {
-        grid-area: featuredAppsAside;
-    }
-
-    @media (max-width: 768px) {
-        .home {
-            grid-template-columns: 1fr;
-            grid-template-areas:
-                'profileMain'
-                'recentArtsAside'
-                'featuredAppsAside';
-            height: auto;
-        }
     }
 </style>
-
-<script>
-    /*
-const profile = document.querySelector('.profile__content');
-if (profile instanceof HTMLElement) {
-    const updateFade = () => {
-        const rect = profile.getBoundingClientRect();
-        // Si el elemento está por encima del 10% de la pantalla
-        if (rect.top <= 58) {
-            // Calculamos cuántos píxeles se ha ocultado bajo ese 10%
-            const scrolledPast = Math.round(58 - rect.top);
-            console.log(scrolledPast);
-            // Actualizamos una variable CSS en tiempo real
-            profile.style.setProperty('--fade-start', `${scrolledPast+20}px`);
-            profile.style.setProperty('--fade-end', `${scrolledPast + 120}px`); // 150px de difuminado suave
-        } else {
-            // SOLUCIÓN: Si regresamos arriba, hay que restaurar la máscara a su estado base
-            profile.style.setProperty('--fade-start', `20px`);
-            profile.style.setProperty('--fade-end', `120px`);
-        }
-    };
-    window.addEventListener('scroll', updateFade)
-
-}
-*/
-</script>

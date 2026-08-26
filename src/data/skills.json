@@ -1,117 +1,147 @@
 [
     {
-        "id": [
-            "id"
-        ],
-        "categoria": "Frontend",
+        "id": "math",
+        "categoria": "Fundamentos Matemáticos",
+        "badge": "Especialidad Académica",
+        "description": "Base teórica en mi formación universitaria aplicada al modelado computacional.",
         "techs": [
             {
-                "tech": "React",
-                "image": "/images/techs/frontend/react.png"
+                "tech": "Cálculo Diferencial e Integral",
+                "image": "/images/techs/system y core/git.png",
+                "isTheoretical": true,
+                "icon": "∫"
             },
             {
-                "tech": "Astro",
-                "image": "/images/techs/frontend/astro.svg"
+                "tech": "Álgebra Lineal",
+                "image": "/images/techs/system y core/git.png",
+                "isTheoretical": true,
+                "icon": "矩阵"
             },
             {
-                "tech": "svelte",
-                "image": "/images/techs/frontend/svelte.png"
+                "tech": "Series y Transformadas de Fourier",
+                "image": "/images/techs/system y core/git.png",
+                "isTheoretical": true,
+                "icon": "∑"
             },
             {
-                "tech": "Tailwind",
-                "image": "/images/techs/frontend/tailwind.png"
-            },
+                "tech": "Estadística & Probabilidad",
+                "image": "/images/techs/system y core/git.png",
+                "isTheoretical": true,
+                "icon": "P(x)"
+            }
+        ]
+    },
+    {
+        "id": "languages",
+        "categoria": "Lenguajes de Programación",
+        "badge": "Nivel Básico - Intermedio",
+        "description": "Lenguajes que uso activamente para resolver problemas, crear algoritmos y desarrollar proyectos.",
+        "techs": [
             {
-                "tech": "TypeScript",
-                "image": "/images/techs/frontend/typescript.png"
+                "tech": "Python",
+                "image": "/images/techs/ai y data/py.png",
+                "isTheoretical": false,
+                "icon": ""
             },
             {
                 "tech": "JavaScript",
-                "image": "/images/techs/frontend/js.png"
+                "image": "/images/techs/frontend/js.png",
+                "isTheoretical": false,
+                "icon": ""
             },
             {
-                "tech": "HTML",
-                "image": "/images/techs/frontend/html.png"
-            },
-            {
-                "tech": "CSS",
-                "image": "/images/techs/frontend/css.png"
-            }
-        ]
-    },
-    {
-        "id": [
-            "id"
-        ],
-        "categoria": "Backend",
-        "techs": [
-            {
-                "tech": "django",
-                "image": "/images/techs/backend/django.png"
-            },
-            {
-                "tech": "Node.js",
-                "image": "/images/techs/backend/node.png"
+                "tech": "TypeScript",
+                "image": "/images/techs/frontend/typescript.png",
+                "isTheoretical": false,
+                "icon": ""
             },
             {
                 "tech": "SQL",
-                "image": "/images/techs/backend/sql.png"
+                "image": "/images/techs/backend/sql.png",
+                "isTheoretical": false,
+                "icon": ""
+            },
+            {
+                "tech": "Bash / Shell",
+                "image": "/images/techs/system y core/bash.png",
+                "isTheoretical": false,
+                "icon": ""
             }
         ]
     },
     {
-        "id": [
-            "id"
-        ],
-        "categoria": "Ai & Data",
+        "id": "web-tools",
+        "categoria": "Desarrollo Web & Herramientas",
+        "badge": "Desarrollo Activo",
+        "description": "Ecosistema para llevar visualizaciones y algoritmos matemáticos a interfaces interactivas en la web.",
         "techs": [
             {
-                "tech": "TensorFlow",
-                "image": "/images/techs/ai y data/tf.png"
+                "tech": "React",
+                "image": "/images/techs/frontend/react.png",
+                "isTheoretical": false,
+                "icon": ""
             },
             {
-                "tech": "Scikit-Learn",
-                "image": "/images/techs/ai y data/scikitlearn.png"
+                "tech": "Astro",
+                "image": "/images/techs/frontend/astro.svg",
+                "isTheoretical": false,
+                "icon": ""
             },
             {
-                "tech": "Pandas",
-                "image": "/images/techs/ai y data/pandas.png"
-            },
-            {
-                "tech": "NumPy",
-                "image": "/images/techs/ai y data/numpy.png"
-            },
-            {
-                "tech": "Matplotlib",
-                "image": "/images/techs/ai y data/matplolib.png"
-            },
-            {
-                "tech": "Seaborn",
-                "image": "/images/techs/ai y data/seabor.png"
-            }
-        ]
-    },
-    {
-        "id": [
-            "id"
-        ],
-        "categoria": "Sistema & Core",
-        "techs": [
-            {
-                "tech": "Rust",
-                "image": "/images/techs/system y core/rust.png"
-            },
-            {
-                "tech": "Bash",
-                "image": "/images/techs/system y core/bash.png"
+                "tech": "Tailwind CSS",
+                "image": "/images/techs/frontend/tailwind.png",
+                "isTheoretical": false,
+                "icon": ""
             },
             {
                 "tech": "Git",
-                "image": "/images/techs/system y core/git.png"
+                "image": "/images/techs/system y core/git.png",
+                "isTheoretical": false,
+                "icon": ""
             },
             {
                 "tech": "GitHub",
-                "image": "/images/techs/system y core/github.png"
+                "image": "/images/techs/system y core/github.png",
+                "isTheoretical": false,
+                "icon": ""
+            }
+        ]
+    },
+    {
+        "id": "data-science",
+        "categoria": "Computación Científica & Data",
+        "badge": "Ruta de Aprendizaje (Aspiración)",
+        "description": "Librerías y herramientas de análisis en las que continúo profundizando continuamente.",
+        "techs": [
+            {
+                "tech": "NumPy",
+                "image": "/images/techs/ai y data/numpy.png",
+                "isTheoretical": false,
+                "icon": ""
+            },
+            {
+                "tech": "Matplotlib",
+                "image": "/images/techs/ai y data/matplolib.png",
+                "isTheoretical": false,
+                "icon": ""
+            },
+            {
+                "tech": "Pandas",
+                "image": "/images/techs/ai y data/pandas.png",
+                "isTheoretical": false,
+                "icon": ""
+            },
+            {
+                "tech": "Seaborn",
+                "image": "/images/techs/ai y data/seabor.png",
+                "isTheoretical": false,
+                "icon": ""
+            },
+            {
+                "tech": "Scikit-Learn",
+                "image": "/images/techs/ai y data/scikitlearn.png",
+                "isTheoretical": false,
+                "icon": ""
             }
         ]
     }

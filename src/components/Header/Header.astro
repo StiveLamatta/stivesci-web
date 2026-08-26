@@ -3,237 +3,288 @@
 ---
 
 <header class="header">
-    <div class="header__top">
-        <div class="header__container">
-            <div class="header__brand">
-                <div class="header__logo">
-                    <img src="/logo.jpg" alt="Stive Lamatta" />
-                </div>
-                <div class="header__info">
-                    <h1>StiveSci</h1>
-                    <p>Data Scientist & Developer</p>
-                </div>
+    <div class="header__container">
+        <a href="#h_pf_about-me" class="header__brand">
+            <div class="header__logo">
+                <img src="/logo.jpg" alt="Stive Lamatta" />
             </div>
-            <nav class="header__nav" id="main-nav">
-                <div class="header__nav-child">
-                    <ul class="header__nav-main">
-                        <li>
-                            <a href="#w-home"><span class="icon">🏠</span> Home</a>
-                        </li>
-                        <li>
-                            <a href="#w-articulos"><span class="icon">📄</span> Artículos</a>
-                        </li>
-                        <li>
-                            <a href="#w-proyectos"><span class="icon">📁</span> Proyectos</a>
-                        </li>
-                        <li>
-                            <a href="#w-galeria"><span class="icon">🖼️</span> Galería</a>
-                        </li>
-                        <li>
-                            <a href="#w-contacto"><span class="icon">✉️</span> Redes & Contacto</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+            <div class="header__info">
+                <h1>StiveSci</h1>
+                <p>Estudiante de Matemáticas</p>
+            </div>
+        </a>
+
+        <nav class="header__nav" id="main-nav">
+            <ul class="header__nav-list">
+                <li>
+                    <a href="#h_pf_about-me"><span>Sobre Mí</span></a>
+                </li>
+                <li>
+                    <a href="#h_pf_projects"><span>Proyecto (Epiciclos)</span></a>
+                </li>
+                <li>
+                    <a href="#h_pf_skills"><span>Matemáticas & Código</span></a>
+                </li>
+                <li>
+                    <a href="#h_pf_certifications"><span>Certificados</span></a>
+                </li>
+                <li>
+                    <a href="#h_pf_contact"><span>Contacto</span></a>
+                </li>
+            </ul>
+        </nav>
+
         <div class="header__actions">
-            <button class="btn-subscribe">¡Suscríbete Gratis!</button>
-            <button class="header__menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+            <a href="https://epy.stivesci.com" target="_blank" rel="noopener noreferrer" class="btn-app">
+                <span>Probar App</span> 🚀
+            </a>
+            <button class="header__menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </div>
     </div>
+
+    <!-- Mobile Drawer Nav -->
+    <div class="header__mobile-menu" id="mobile-menu">
+        <ul>
+            <li><a href="#h_pf_about-me" class="mobile-link"><span>🏠</span> Sobre Mí</a></li>
+            <li><a href="#h_pf_projects" class="mobile-link"><span>📐</span> Epiciclos (Fourier)</a></li>
+            <li><a href="#h_pf_skills" class="mobile-link"><span>⚡</span> Matemáticas & Habilidades</a></li>
+            <li><a href="#h_pf_certifications" class="mobile-link"><span>📜</span> Certificados</a></li>
+            <li><a href="#h_pf_contact" class="mobile-link"><span>✉️</span> Contacto</a></li>
+            <li class="mobile-action-li">
+                <a href="https://epy.stivesci.com" target="_blank" rel="noopener noreferrer" class="btn-app w-full"> Probar Epiciclos App 🚀 </a>
+            </li>
+        </ul>
+    </div>
 </header>
 
 <style>
     .header {
         box-sizing: border-box;
-        display: flex;
         width: 100%;
-        height: 8dvh;
         position: sticky;
         top: 0;
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgb(9, 33, 153);
-        z-index: 70;
-    }
-
-    .header__top {
-        display: flex;
-        width: 100%;
-        height: 100%;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        background: rgba(10, 15, 30, 0.85);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        z-index: 100;
+        transition: all 0.3s ease;
     }
 
     .header__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0.6rem 1.2rem;
         display: flex;
-        width: 100%;
-        height: 100%;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
     }
 
     .header__brand {
         display: flex;
-        width: 20%;
-        height: 100%;
-    }
-
-    .header__logo {
-        margin-left: 10px;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
     }
 
     .header__logo img {
-        width: 55px;
-        height: 55px;
+        width: 44px;
+        height: 44px;
         border-radius: 50%;
         object-fit: cover;
-        border: 2px solid var(--primary-color);
+        border: 2px solid #3b82f6;
+        box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
     }
 
     .header__info {
         display: flex;
         flex-direction: column;
-        font-size: 10px;
-        justify-content: center;
-        margin-left: 10px;
-        height: 100%;
     }
 
     .header__info h1 {
-        padding: 0;
         margin: 0;
-        display: inline-block;
-        font-weight: 700;
-        letter-spacing: 3px;
-        color: rgb(106, 214, 47);
+        font-size: 1.15rem;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        background: linear-gradient(135deg, #60a5fa, #34d399);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     .header__info p {
-        padding: 0;
         margin: 0;
-        display: inline-block;
-        text-transform: uppercase;
-        color: white;
+        font-size: 0.72rem;
+        font-weight: 500;
+        color: #94a3b8;
+        letter-spacing: 0.02em;
     }
 
     .header__nav {
         display: flex;
-        margin-left: 10px;
-        width: 80%;
-        height: 100%;
-    }
-
-    .header__nav-child {
-        display: flex;
-        width: 100%;
         align-items: center;
     }
 
-    .header__nav ul {
+    .header__nav-list {
         display: flex;
         list-style: none;
-        width: 100%;
-        justify-content: space-evenly;
-        height: 100%;
+        margin: 0;
+        padding: 0;
+        gap: 0.5rem;
     }
 
-    .header__nav li {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        transition: all 0.1s linear;
+    .header__nav-list a {
+        color: #cbd5e1;
+        font-size: 0.88rem;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 0.5rem 0.85rem;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        display: inline-block;
     }
 
-    .header__nav li:hover {
-        background-color: rgba(40, 72, 238, 0.5);
-    }
-
-    .header__nav a {
-        color: white;
-        font-size: 0.95rem;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 0.6rem;
-        transition: all 0.5s ease;
-        padding: 0.2rem 0;
-    }
-
-    .header__nav li:hover a {
-        color: rgb(192, 228, 240);
-        /*animation-name:my-animation;*/
-        animation-delay: 0.3s;
-        animation-duration: 0.4s;
-        animation-iteration-count: 2;
-        transform: scale(1.3);
-        transition: transform 0.3s ease;
-    }
-
-    @keyframes my-animation {
-        0% {
-            transform: scale(1.5, 1.5) rotate(0deg);
-        }
-
-        33% {
-            transform: scale(1.5, 1.5) rotate(10deg);
-        }
-
-        100% {
-            transform: scale(1.5, 1.5) rotate(-10deg);
-        }
-    }
-
-    .icon {
-        font-size: 1.1rem;
+    .header__nav-list a:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.08);
     }
 
     .header__actions {
-        gap: 1rem;
         display: flex;
-        width: 220px;
-        justify-content: center;
         align-items: center;
+        gap: 0.8rem;
     }
 
-    .btn-subscribe {
-        background-color: var(--primary-color);
-        color: white;
-        border: none;
-        padding: 0.8rem 1.8rem;
-        border-radius: 50px;
-        font-weight: 700;
+    .btn-app {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        color: #fff;
+        text-decoration: none;
+        padding: 0.55rem 1.2rem;
+        border-radius: 9999px;
+        font-weight: 600;
         font-size: 0.85rem;
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
         white-space: nowrap;
     }
 
-    .btn-subscribe:hover {
-        background-color: #1d4ed8;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    .btn-app:hover {
+        background: linear-gradient(135deg, #1d4ed8, #1e40af);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
     }
 
-    /* Menu Toggle */
+    /* Mobile toggle */
     .header__menu-toggle {
         display: none;
         flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 21px;
-        background: none;
-        border: none;
+        justify-content: space-around;
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
         cursor: pointer;
-        padding: 0;
+        padding: 8px;
     }
 
     .header__menu-toggle span {
         width: 100%;
-        height: 3px;
-        background-color: var(--secondary-color);
-        border-radius: 3px;
+        height: 2px;
+        background-color: #f8fafc;
+        border-radius: 2px;
         transition: all 0.3s ease;
     }
+
+    /* Mobile Dropdown Menu */
+    .header__mobile-menu {
+        display: none;
+        max-height: 0;
+        overflow: hidden;
+        background: rgba(15, 23, 42, 0.98);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        transition: max-height 0.35s ease-in-out;
+    }
+
+    .header__mobile-menu.open {
+        max-height: 400px;
+    }
+
+    .header__mobile-menu ul {
+        list-style: none;
+        margin: 0;
+        padding: 1rem 1.2rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .header__mobile-menu a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #e2e8f0;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 0.75rem 1rem;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.03);
+    }
+
+    .header__mobile-menu a:active {
+        background: rgba(59, 130, 246, 0.2);
+    }
+
+    .mobile-action-li {
+        margin-top: 0.5rem;
+    }
+
+    .w-full {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    @media (max-width: 880px) {
+        .header__nav {
+            display: none;
+        }
+
+        .header__menu-toggle {
+            display: flex;
+        }
+
+        .header__mobile-menu {
+            display: block;
+        }
+    }
 </style>
+
+<script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const links = document.querySelectorAll('.mobile-link');
+
+    if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+            const isOpen = menu.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        links.forEach((link) => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+</script>

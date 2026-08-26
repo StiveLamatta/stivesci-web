@@ -1,46 +1,38 @@
 [
     {
-        "title": "Diploma de Calculo Diferencial para Data Science",
+        "id": 1,
+        "title": "Cálculo Diferencial para Data Science",
+        "institution": "Especialización Matemática",
         "image": "/images/certif/diploma-calculo-diferencial-ds.jpg"
     },
     {
-        "title": "Diploma de estadistica descriptiva",
+        "id": 2,
+        "title": "Estadística Descriptiva",
+        "institution": "Fundamentos de Análisis de Datos",
         "image": "/images/certif/diploma-estadistica-descriptiva.jpg"
     },
     {
-        "title": "Diploma de Calculo Diferencial para Data Science",
+        "id": 3,
+        "title": "Estadística y Probabilidad",
+        "institution": "Modelado Estocástico y Probabilístico",
         "image": "/images/certif/diploma-estadistica-probabilidad.jpg"
     },
     {
-        "title": "Diploma de Calculo Diferencial para Data Science",
+        "id": 4,
+        "title": "Funciones Matemáticas",
+        "institution": "Álgebra y Análisis Funcional",
         "image": "/images/certif/diploma-funciones-matematicas.jpg"
     },
     {
-        "title": "Diploma de Calculo Diferencial para Data Science",
+        "id": 5,
+        "title": "Fundamentos de Matemáticas",
+        "institution": "Lógica y Razonamiento Formal",
         "image": "/images/certif/diploma-fundamentos-matematicas.jpg"
     },
     {
-        "title": "Diploma de Calculo Diferencial para Data Science",
+        "id": 6,
+        "title": "Matemáticas para Ingeniería y Ciencia",
+        "institution": "Aplicaciones Científicas",
         "image": "/images/certif/diploma-ingenieria.jpg"
-    },
-    {
-        "title": "Diploma de Calculo Diferencial para Data Science",
-        "image": "/images/certif/diploma-calculo-diferencial-ds.jpg"
-    },
-    {
-        "title": "Diploma de Calculo Diferencial para Data Science",
-        "image": "/images/certif/diploma-calculo-diferencial-ds.jpg"
-    },
-    {
-        "title": "Diploma de Calculo Diferencial para Data Science",
-        "image": "/images/certif/diploma-calculo-diferencial-ds.jpg"
-    },
-    {
-        "title": "Diploma de Calculo Diferencial para Data Science",
-        "image": "/images/certif/diploma-calculo-diferencial-ds.jpg"
-    },
-    {
-        "title": "Diploma de Calculo Diferencial para Data Science",
-        "image": "/images/certif/diploma-calculo-diferencial-ds.jpg"
     }
 ]
