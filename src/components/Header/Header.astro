@@ -1,61 +1,58 @@
 ---
-
+const links = [
+    { href: '#h_pf_about-me', label: 'Sobre mí' },
+    { href: '#h_pf_projects', label: 'Epiciclos' },
+    { href: '#h_pf_skills', label: 'Matemáticas' },
+    { href: '#h_pf_certifications', label: 'Certificados' },
+    { href: '#h_pf_contact', label: 'Contacto' },
+];
 ---
 
 <header class="header">
-    <div class="header__container">
-        <a href="#h_pf_about-me" class="header__brand">
-            <div class="header__logo">
-                <img src="/logo.jpg" alt="Stive Lamatta" />
-            </div>
-            <div class="header__info">
-                <h1>StiveSci</h1>
-                <p>Estudiante de Matemáticas</p>
-            </div>
+    <div class="header__bar">
+        <a href="#contenido" class="brand">
+            <span class="brand__name">Stive Lamatta</span>
+            <span class="brand__role">Estudiante de matemáticas</span>
         </a>
 
-        <nav class="header__nav" id="main-nav">
-            <ul class="header__nav-list">
-                <li>
-                    <a href="#h_pf_about-me"><span>Sobre Mí</span></a>
-                </li>
-                <li>
-                    <a href="#h_pf_projects"><span>Proyecto (Epiciclos)</span></a>
-                </li>
-                <li>
-                    <a href="#h_pf_skills"><span>Matemáticas & Código</span></a>
-                </li>
-                <li>
-                    <a href="#h_pf_certifications"><span>Certificados</span></a>
-                </li>
-                <li>
-                    <a href="#h_pf_contact"><span>Contacto</span></a>
-                </li>
+        <nav class="nav" aria-label="Secciones">
+            <ul class="nav__list">
+                {
+                    links.map((link) => (
+                        <li>
+                            <a href={link.href}>{link.label}</a>
+                        </li>
+                    ))
+                }
             </ul>
         </nav>
 
-        <div class="header__actions">
-            <a href="https://epy.stivesci.com" target="_blank" rel="noopener noreferrer" class="btn-app">
-                <span>Probar App</span> 🚀
-            </a>
-            <button class="header__menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <button class="menu" id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-movil">
+            <span class="menu__bars" aria-hidden="true">
                 <span></span>
                 <span></span>
                 <span></span>
-            </button>
-        </div>
+            </span>
+            <span class="menu__label">Menú</span>
+        </button>
     </div>
 
-    <!-- Mobile Drawer Nav -->
-    <div class="header__mobile-menu" id="mobile-menu">
+    <div class="drawer" id="menu-movil" hidden>
         <ul>
-            <li><a href="#h_pf_about-me" class="mobile-link"><span>🏠</span> Sobre Mí</a></li>
-            <li><a href="#h_pf_projects" class="mobile-link"><span>📐</span> Epiciclos (Fourier)</a></li>
-            <li><a href="#h_pf_skills" class="mobile-link"><span>⚡</span> Matemáticas & Habilidades</a></li>
-            <li><a href="#h_pf_certifications" class="mobile-link"><span>📜</span> Certificados</a></li>
-            <li><a href="#h_pf_contact" class="mobile-link"><span>✉️</span> Contacto</a></li>
-            <li class="mobile-action-li">
-                <a href="https://epy.stivesci.com" target="_blank" rel="noopener noreferrer" class="btn-app w-full"> Probar Epiciclos App 🚀 </a>
+            {
+                links.map((link) => (
+                    <li>
+                        <a href={link.href} class="drawer__link">
+                            {link.label}
+                        </a>
+                    </li>
+                ))
+            }
+            <li>
+                <a class="drawer__link drawer__go" href="https://epy.stivesci.com" target="_blank" rel="noopener noreferrer">
+                    Abrir Epiciclos
+                    <span class="sr-only"> (se abre en una pestaña nueva)</span>
+                </a>
             </li>
         </ul>
     </div>
@@ -63,228 +60,208 @@
 
 <style>
     .header {
-        box-sizing: border-box;
-        width: 100%;
         position: sticky;
         top: 0;
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        background: rgba(10, 15, 30, 0.85);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        z-index: 100;
-        transition: all 0.3s ease;
+        z-index: 40;
+        background: var(--plaster);
+        border-bottom: 1px solid var(--line);
     }
 
-    .header__container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0.6rem 1.2rem;
+    .header__bar {
+        width: min(var(--wrap), calc(100% - 2 * var(--gutter)));
+        margin-inline: auto;
+        min-height: var(--header-h);
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 1.5rem;
+        gap: 1.25rem;
     }
 
-    .header__brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        text-decoration: none;
-    }
-
-    .header__logo img {
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 2px solid #3b82f6;
-        box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
-    }
-
-    .header__info {
+    .brand {
         display: flex;
         flex-direction: column;
+        text-decoration: none;
+        color: var(--paper);
+        min-height: 2.75rem;
+        justify-content: center;
     }
 
-    .header__info h1 {
-        margin: 0;
+    .brand__name {
+        font-family: var(--font-display);
+        font-weight: 700;
         font-size: 1.15rem;
-        font-weight: 800;
-        letter-spacing: 0.5px;
-        background: linear-gradient(135deg, #60a5fa, #34d399);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
     }
 
-    .header__info p {
-        margin: 0;
-        font-size: 0.72rem;
-        font-weight: 500;
-        color: #94a3b8;
-        letter-spacing: 0.02em;
+    .brand__role {
+        color: var(--quiet);
+        font-size: 0.875rem;
+        line-height: 1.3;
     }
 
-    .header__nav {
+    .nav__list {
         display: flex;
-        align-items: center;
-    }
-
-    .header__nav-list {
-        display: flex;
+        gap: 0.25rem;
         list-style: none;
         margin: 0;
         padding: 0;
-        gap: 0.5rem;
     }
 
-    .header__nav-list a {
-        color: #cbd5e1;
-        font-size: 0.88rem;
-        font-weight: 500;
-        text-decoration: none;
-        padding: 0.5rem 0.85rem;
-        border-radius: 8px;
-        transition: all 0.2s ease;
-        display: inline-block;
-    }
-
-    .header__nav-list a:hover {
-        color: #fff;
-        background: rgba(255, 255, 255, 0.08);
-    }
-
-    .header__actions {
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-    }
-
-    .btn-app {
+    .nav__list a {
         display: inline-flex;
         align-items: center;
-        justify-content: center;
-        gap: 6px;
-        background: linear-gradient(135deg, #2563eb, #1d4ed8);
-        color: #fff;
+        min-height: 2.75rem;
+        padding: 0.35rem 0.7rem;
+        color: var(--body);
         text-decoration: none;
-        padding: 0.55rem 1.2rem;
-        border-radius: 9999px;
-        font-weight: 600;
-        font-size: 0.85rem;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
-        white-space: nowrap;
+        font-size: 0.98rem;
     }
 
-    .btn-app:hover {
-        background: linear-gradient(135deg, #1d4ed8, #1e40af);
-        transform: translateY(-1px);
-        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+    .nav__list a:hover {
+        color: var(--trace);
     }
 
-    /* Mobile toggle */
-    .header__menu-toggle {
+    .nav__list a[aria-current='true'] {
+        color: var(--ink);
+        background: var(--trace);
+    }
+
+    .nav__list a[aria-current='true']:focus-visible {
+        outline-color: var(--paper);
+    }
+
+    .menu {
         display: none;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 36px;
-        height: 36px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
+        align-items: center;
+        gap: 0.6rem;
+        min-width: 2.75rem;
+        min-height: 2.75rem;
+        padding: 0.4rem 0.7rem;
+        background: transparent;
+        color: var(--paper);
+        border: 1px solid var(--line);
         cursor: pointer;
-        padding: 8px;
     }
 
-    .header__menu-toggle span {
-        width: 100%;
-        height: 2px;
-        background-color: #f8fafc;
-        border-radius: 2px;
-        transition: all 0.3s ease;
+    .menu__bars {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+        width: 1.1rem;
     }
 
-    /* Mobile Dropdown Menu */
-    .header__mobile-menu {
-        display: none;
-        max-height: 0;
-        overflow: hidden;
-        background: rgba(15, 23, 42, 0.98);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        transition: max-height 0.35s ease-in-out;
+    .menu__bars span {
+        display: block;
+        height: 1.5px;
+        background: currentcolor;
     }
 
-    .header__mobile-menu.open {
-        max-height: 400px;
+    .menu__label {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.95rem;
     }
 
-    .header__mobile-menu ul {
+    .drawer {
+        border-top: 1px solid var(--line);
+        background: var(--plaster);
+    }
+
+    .drawer ul {
         list-style: none;
         margin: 0;
-        padding: 1rem 1.2rem 1.5rem;
+        padding: 0.5rem var(--gutter) 1rem;
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
     }
 
-    .header__mobile-menu a {
+    .drawer__link {
         display: flex;
         align-items: center;
-        gap: 10px;
-        color: #e2e8f0;
+        min-height: 2.75rem;
+        color: var(--paper);
         text-decoration: none;
-        font-size: 0.95rem;
-        font-weight: 500;
-        padding: 0.75rem 1rem;
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.03);
+        font-size: 1.05rem;
     }
 
-    .header__mobile-menu a:active {
-        background: rgba(59, 130, 246, 0.2);
-    }
-
-    .mobile-action-li {
+    .drawer__go {
+        color: var(--ink);
+        background: var(--trace);
+        justify-content: center;
         margin-top: 0.5rem;
+        font-family: var(--font-display);
+        font-weight: 700;
     }
 
-    .w-full {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    @media (max-width: 880px) {
-        .header__nav {
+    @media (max-width: 860px) {
+        .nav {
             display: none;
         }
 
-        .header__menu-toggle {
-            display: flex;
+        .menu {
+            display: inline-flex;
         }
 
-        .header__mobile-menu {
-            display: block;
+        .brand__role {
+            display: none;
         }
     }
 </style>
 
 <script>
     const toggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('mobile-menu');
-    const links = document.querySelectorAll('.mobile-link');
+    const menu = document.getElementById('menu-movil');
+    const label = toggle?.querySelector('.menu__label');
+    const links = document.querySelectorAll('.drawer__link');
+    const sections = ['h_pf_about-me', 'h_pf_projects', 'h_pf_skills', 'h_pf_certifications', 'h_pf_contact'].map((id) => document.getElementById(id)).filter((section): section is HTMLElement => section instanceof HTMLElement);
+
+    const setOpen = (open: boolean) => {
+        if (!toggle || !menu) return;
+        toggle.setAttribute('aria-expanded', String(open));
+        menu.hidden = !open;
+        if (label) label.textContent = open ? 'Cerrar' : 'Menú';
+        toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    };
 
     if (toggle && menu) {
+        toggle.setAttribute('aria-label', 'Abrir menú');
         toggle.addEventListener('click', () => {
-            const isOpen = menu.classList.toggle('open');
-            toggle.setAttribute('aria-expanded', String(isOpen));
+            setOpen(toggle.getAttribute('aria-expanded') !== 'true');
         });
 
         links.forEach((link) => {
-            link.addEventListener('click', () => {
-                menu.classList.remove('open');
-                toggle.setAttribute('aria-expanded', 'false');
-            });
+            link.addEventListener('click', () => setOpen(false));
         });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+                setOpen(false);
+                toggle.focus();
+            }
+        });
+    }
+
+    const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('.nav__list a'));
+
+    if (sections.length && navLinks.length && 'IntersectionObserver' in window) {
+        const mark = (id: string) => {
+            navLinks.forEach((link) => {
+                const current = link.getAttribute('href') === `#${id}`;
+                if (current) link.setAttribute('aria-current', 'true');
+                else link.removeAttribute('aria-current');
+            });
+        };
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+                if (visible?.target.id) mark(visible.target.id);
+            },
+            { rootMargin: '-30% 0px -55% 0px', threshold: [0.1, 0.25, 0.5] }
+        );
+
+        sections.forEach((section) => observer.observe(section));
     }
 </script>

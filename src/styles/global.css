@@ -1,4 +1,4 @@
-@import './variables.css';
+@import url('./variables.css');
 
 *,
 *::before,
@@ -6,13 +6,69 @@
     box-sizing: border-box;
 }
 
+html {
+    margin: 0;
+    scroll-behavior: smooth;
+    color-scheme: dark;
+    scrollbar-color: var(--trace) var(--plaster);
+}
+
 body {
-    font-family: var(--font-primary);
+    margin: 0;
+    min-height: 100dvh;
+    background: var(--plaster);
+    color: var(--body);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizelegibility;
+}
+
+::selection {
+    background: var(--trace);
+    color: var(--ink);
+}
+
+:focus {
+    outline: none;
+}
+
+:focus-visible {
+    outline: var(--focus);
+    outline-offset: 3px;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+    color: var(--trace);
+    text-underline-offset: 0.18em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }

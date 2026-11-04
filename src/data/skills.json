@@ -15,7 +15,7 @@
                 "tech": "Álgebra Lineal",
                 "image": "/images/techs/system y core/git.png",
                 "isTheoretical": true,
-                "icon": "矩阵"
+                "icon": "Ax"
             },
             {
                 "tech": "Series y Transformadas de Fourier",
