@@ -4,18 +4,13 @@ import Profile from '../components/Profile/Profile.astro';
 ---
 
 <BaseBlog title="Stive Lamatta | Estudiante de Matemáticas & Desarrollador" description="Portafolio de Stive Lamatta — Estudiante de Matemáticas apasionado por la programación, la computación visual y las series de Fourier (Epiciclos).">
-    <main class="home-main">
+    <main id="contenido" class="home">
         <Profile />
     </main>
 </BaseBlog>
 
 <style>
-    .home-main {
+    .home {
         width: 100%;
-        min-height: 92dvh;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        box-sizing: border-box;
     }
 </style>

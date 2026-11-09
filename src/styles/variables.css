@@ -1,25 +1,28 @@
 :root {
-    /* Colores principales */
-    --primary-color: #3b82f6;
-    --primary-hover: #2563eb;
-    --secondary-color: #10b981;
-    --bg-color: #090d16;
-    --card-bg: rgba(15, 23, 42, 0.75);
-    --text-main: #f8fafc;
-    --text-light: #94a3b8;
-    --border-color: rgba(255, 255, 255, 0.08);
-
-    /* Spacing y diseño */
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 2rem;
-    --border-radius: 14px;
-
-    /* Tipografía */
-    --font-primary: 'Inter', system-ui, sans-serif;
-
-    /* Breakpoints */
-    --breakpoint-mobile: 480px;
-    --breakpoint-tablet: 768px;
-    --breakpoint-desktop: 1024px;
+    --plaster: #0c0c0a;
+    --trace: #e4f04a;
+    --trace-deep: #d4e03a;
+    --ink: #14140f;
+    --paper: #f4f0d8;
+    --body: #e7e2c8;
+    --quiet: #cfc8a4;
+    --line: #2a2a22;
+    --sky: #000;
+    --font-display: 'Besley', 'Iowan Old Style', 'Palatino Linotype', serif;
+    --font-body: 'Literata', 'Iowan Old Style', 'Palatino Linotype', serif;
+    --font-math: 'STIX Two Text', 'Literata', serif;
+    --font-primary: var(--font-body);
+    --header-h: 4.25rem;
+    --gutter: clamp(1.25rem, 4vw, 2.5rem);
+    --wrap: 72rem;
+    --measure: 68ch;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2.5rem;
+    --space-7: 4rem;
+    --space-8: 6.5rem;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --focus: 2px solid var(--trace);
 }

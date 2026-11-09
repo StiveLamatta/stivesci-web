@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-04T20:10:00.000Z",
+  "title": "Design System: Stive Lamatta",
+  "extensions": {
+    "colorMeta": {
+      "trace": {
+        "role": "primary",
+        "displayName": "Trazo",
+        "canonical": "#e4f04a",
+        "tonalRamp": ["#2a2c08", "#45480e", "#646814", "#8a8f1c", "#b7bd28", "#e4f04a", "#eef68a", "#f7fbcc"]
+      },
+      "trace-deep": {
+        "role": "primary",
+        "displayName": "Trazo hundido",
+        "canonical": "#d4e03a",
+        "tonalRamp": ["#262808", "#3e420c", "#5a6010", "#7c8418", "#a8b024", "#d4e03a", "#e4ee78", "#f3f7c0"]
+      },
+      "plaster": {
+        "role": "neutral",
+        "displayName": "Yeso",
+        "canonical": "#0c0c0a",
+        "tonalRamp": ["#0c0c0a", "#1c1c16", "#32322a", "#4a4a3e", "#6a6a58", "#8e8e78", "#bdbda8", "#e8e8d8"]
+      },
+      "sky": {
+        "role": "neutral",
+        "displayName": "Cielo",
+        "canonical": "#000000",
+        "tonalRamp": ["#000000", "#141414", "#2a2a2a", "#444444", "#666666", "#8a8a8a", "#b8b8b8", "#e6e6e6"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "canonical": "#14140f",
+        "tonalRamp": ["#14140f", "#26241c", "#3c3a2e", "#565442", "#78745c", "#9c987c", "#c4c0a4", "#eee9d4"]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papel",
+        "canonical": "#f4f0d8",
+        "tonalRamp": ["#2e2c20", "#4a4634", "#686450", "#8a846c", "#b0aa90", "#d4ceb4", "#f4f0d8", "#fbf8ee"]
+      },
+      "body": {
+        "role": "neutral",
+        "displayName": "Cuerpo",
+        "canonical": "#e7e2c8",
+        "tonalRamp": ["#2a281c", "#444232", "#625e48", "#847e62", "#aaa484", "#ccc6a8", "#e7e2c8", "#f6f3e6"]
+      },
+      "quiet": {
+        "role": "neutral",
+        "displayName": "Apartado",
+        "canonical": "#cfc8a4",
+        "tonalRamp": ["#242218", "#3c3828", "#585438", "#787458", "#9c9874", "#cfc8a4", "#e4dfc4", "#f4f0e2"]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Filete",
+        "canonical": "#2a2a22",
+        "tonalRamp": ["#141410", "#2a2a22", "#44443a", "#626254", "#848470", "#a8a890", "#d0d0b8", "#eeeede"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "El nombre en la banda amarilla." },
+      "headline": { "displayName": "Headline", "purpose": "Títulos de sección." },
+      "title": { "displayName": "Title", "purpose": "Subtítulos y nombres de diploma." },
+      "body": { "displayName": "Body", "purpose": "Prosa, medida máxima 68ch." },
+      "label": { "displayName": "Label", "purpose": "Nivel de una habilidad, bajo el título." },
+      "math": { "displayName": "Math", "purpose": "La transformada, en STIX Two Text." }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Reservado. El epiciclo se mueve en el canvas; la interfaz no rebota."
+      }
+    ],
+    "breakpoints": [
+      { "name": "nav", "value": "860px" },
+      { "name": "groups", "value": "800px" },
+      { "name": "program", "value": "420px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción sobre la banda amarilla. Tinta plana, texto trazo.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Abrir Epiciclos</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; min-height: 44px; padding: 0.65rem 1.1rem; background: #14140f; color: #e4f04a; text-decoration: none; font-family: Besley, Palatino Linotype, serif; font-weight: 700; font-size: 1.05rem; border: 0; border-radius: 0; } .ds-btn-primary:hover { background: #000000; } .ds-btn-primary:focus-visible { outline: 2px solid #14140f; outline-offset: 3px; }"
+    },
+    {
+      "name": "Trace Button",
+      "kind": "button",
+      "refersTo": "button-trace",
+      "description": "Acción sobre yeso. Fondo trazo, texto tinta.",
+      "html": "<a class=\"ds-btn-trace\" href=\"#\">Abrir aplicación</a>",
+      "css": ".ds-btn-trace { display: inline-flex; align-items: center; min-height: 44px; padding: 0.65rem 1.1rem; background: #e4f04a; color: #14140f; text-decoration: none; font-family: Besley, Palatino Linotype, serif; font-weight: 700; font-size: 1.05rem; border: 0; border-radius: 0; } .ds-btn-trace:hover { background: #d4e03a; } .ds-btn-trace:focus-visible { outline: 2px solid #f4f0d8; outline-offset: 3px; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Barra de yeso. La sección actual toma el campo amarillo.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Sobre mí</a><a href=\"#\" aria-current=\"true\">Epiciclos</a><a href=\"#\">Contacto</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 4px; background: #0c0c0a; font-family: Literata, Palatino Linotype, serif; } .ds-nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0.35rem 0.7rem; color: #e7e2c8; text-decoration: none; } .ds-nav a:hover { color: #e4f04a; } .ds-nav a[aria-current='true'] { background: #e4f04a; color: #14140f; } .ds-nav a:focus-visible { outline: 2px solid #e4f04a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Text link",
+      "kind": "custom",
+      "refersTo": "nav-link",
+      "description": "Enlace de texto sobre yeso, sin botón.",
+      "html": "<a class=\"ds-text-link\" href=\"#\">Código en GitHub</a>",
+      "css": ".ds-text-link { color: #f4f0d8; font-family: Besley, Palatino Linotype, serif; font-weight: 700; text-underline-offset: 0.18em; } .ds-text-link:hover { color: #e4f04a; } .ds-text-link:focus-visible { outline: 2px solid #e4f04a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Certificate row",
+      "kind": "custom",
+      "refersTo": "button-trace",
+      "description": "Fila de diploma. La acción Ver diploma está siempre visible.",
+      "html": "<button class=\"ds-cert\" type=\"button\"><span class=\"ds-cert-thumb\"></span><span class=\"ds-cert-copy\"><span class=\"ds-cert-title\">Cálculo Diferencial para Data Science</span><span class=\"ds-cert-place\">Especialización Matemática</span><span class=\"ds-cert-action\">Ver diploma</span></span></button>",
+      "css": ".ds-cert { width: 100%; display: grid; grid-template-columns: 8.5rem 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border: 0; border-top: 1px solid #2a2a22; background: transparent; color: #e7e2c8; text-align: left; font-family: Literata, Palatino Linotype, serif; cursor: pointer; } .ds-cert-thumb { display: block; width: 8.5rem; height: 6.2rem; background: #1a1a16; } .ds-cert-copy { display: flex; flex-direction: column; gap: 0.2rem; } .ds-cert-title { color: #f4f0d8; font-family: Besley, Palatino Linotype, serif; font-weight: 700; font-size: 1.2rem; } .ds-cert-place { color: #cfc8a4; } .ds-cert-action { color: #e4f04a; font-family: Besley, Palatino Linotype, serif; font-weight: 700; } .ds-cert:hover .ds-cert-title { color: #e4f04a; } .ds-cert:focus-visible { outline: 2px solid #e4f04a; outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "El programa del domo",
+    "overview": "La página es el programa de una función en un planetario pequeño, con las luces de sala ya apagadas. Lo que se proyecta es una órbita de Fourier, en trazo amarillo y plano, sobre el negro del cielo. El nombre, el retrato y la acción viven en una banda de ese mismo amarillo, como el título impreso al pie de la proyección. El resto del scroll es el programa: texto, la captura real de Epiciclos, la fórmula, una lista de estudios y los diplomas como hoja de contactos.\n\nNo hay tarjetas, no hay vidrio, no hay resplandor. La profundidad sale de campos de color enteros, no de sombras. El amarillo de trazo ocupa regiones, no se espolvorea como acento.",
+    "keyCharacteristics": [
+      "La órbita ocupa el primer pantallazo; el texto del programa queda en una banda sólida debajo.",
+      "Besley para los títulos, Literata para leer, STIX Two Text solo para la fórmula.",
+      "Esquinas rectas. Un filete de 1px separa grupos. Nada va dentro de una caja.",
+      "El retrato es una fotografía cuadrada, sin aro ni brillo.",
+      "Un solo movimiento: los círculos del epiciclo recorren un trazo que ya está dibujado al llegar."
+    ],
+    "rules": [
+      { "name": "The Field Rule", "body": "El amarillo cubre una región o no aparece. No es un borde, un brillo ni un gradiente en el texto.", "section": "colors" },
+      { "name": "The No Eyebrow Rule", "body": "Ningún rótulo en versalitas va encima de un título. El título habla solo.", "section": "typography" },
+      { "name": "The No Glow Rule", "body": "Ningún box-shadow de color, ningún blur decorativo, ningún texto en degradado.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do usar Trazo (#e4f04a) como campo entero o como texto sobre yeso.",
+      "Do dejar la fórmula en STIX, al lado de la explicación, no dentro de un recuadro.",
+      "Do mostrar el retrato y los diplomas como fotografías, sin recorte circular.",
+      "Do mantener el foco visible y los controles a 44px de alto."
+    ],
+    "donts": [
+      "Don't usar Inter, vidrio, degradados de texto, puntos que pulsan ni sombras de color.",
+      "Don't meter una tarjeta dentro de otra, ni una ceja encima de un título.",
+      "Don't esconder Ver diploma hasta el hover.",
+      "Don't centrar el programa. La órbita puede ir al centro del cielo; el texto queda alineado a la columna."
+    ]
+  }
+}
